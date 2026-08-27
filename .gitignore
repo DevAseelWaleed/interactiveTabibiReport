@@ -1,0 +1,9 @@
+# System and temp files
+.system_generated/
+.tempmediaStorage/
+*.log
+__pycache__/
+*.pyc
+
+# Local agent artifacts
+.agents/skills/
