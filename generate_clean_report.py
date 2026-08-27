@@ -1751,51 +1751,26 @@ html_content = """<!DOCTYPE html>
             </table>
         </div>
 
-        <!-- Appendix 2 & 3 Side by Side -->
-        <div class="grid-2">
-            <!-- Appendix 2: Receivables -->
-            <div class="custom-table-card" style="margin-bottom:0;">
-                <h3 style="color:var(--primary); margin-bottom:15px;"><i class="fas fa-address-book" style="color:var(--secondary); margin-left:8px;"></i> الملحق (٢): الذمم المدينة (اشتراكات العضوية)</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr><th>أعضاء اشتراك ٢٠٢٦م غير مسدد (١,٠٠٠ ر.س)</th><th>أعضاء اشتراك ٢٠٢٥م غير مسدد (١,٠٠٠ ر.س)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>عبدالرحمن بن نبيل حمودة</td><td>أحمد بن صالح المزيني</td></tr>
-                        <tr><td>محمد بن مسلم الجهني</td><td>خالد بن محمد غليلة</td></tr>
-                        <tr><td>عبدالغني بن مروان أحمد</td><td>رهيد بنت وائل راجح</td></tr>
-                        <tr><td>منذر بن سعيد غنيم</td><td>عمار بن توفيق الحربي</td></tr>
-                        <tr><td>محمد بن مروان أحمد</td><td>خالد بن عواض العوفي</td></tr>
-                        <tr><td>ريان بن محمد القاداني</td><td>عبدالمحسن بن معيض الحربي</td></tr>
-                        <tr class="table-total-row">
-                            <td>إجمالي ٢٠٢٦م: <strong>٦,٠٠٠ ر.س</strong></td>
-                            <td>إجمالي ٢٠٢٥م: <strong>٦,٠٠٠ ر.س</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Appendix 3: Fixed Assets 2026 -->
-            <div class="custom-table-card" style="margin-bottom:0;">
-                <h3 style="color:var(--primary); margin-bottom:15px;"><i class="fas fa-desktop" style="color:var(--secondary); margin-left:8px;"></i> الملحق (٣): الأصول الثابتة المشتراة (٢٠٢٦م)</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr><th>الأصل / التجهيز</th><th>العدد</th><th>التاريخ</th><th>القيمة (ريال)</th><th>المورد</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>طابعة ليزر ملون HP</td><td>١</td><td>١١/٠٥/٢٠٢٦</td><td>١,٣٥٠</td><td>شركة سمرة الرقمية</td></tr>
-                        <tr><td>مكتب سكرتارية خشب بني</td><td>٦</td><td>٢٧/٠٦/٢٠٢٦</td><td>٤,٦٨٠</td><td>الصفوة الجديدة للأثاث</td></tr>
-                        <tr><td>كرسي دوار جلد رصاصي</td><td>٦</td><td>٢٧/٠٦/٢٠٢٦</td><td>٢,٧٠٠</td><td>الصفوة الجديدة للأثاث</td></tr>
-                        <tr><td>مكيفات أوجين ٢٤ وحدة</td><td>٣</td><td>٢٧/٠٦/٢٠٢٦</td><td>٤,٥٩٠.٨٠</td><td>محل بن بلال للأجهزة</td></tr>
-                        <tr><td>خزينة حديدية</td><td>١</td><td>٢٧/٠٦/٢٠٢٦</td><td>١,٢٥٠</td><td>الصفوة الجديدة للأثاث</td></tr>
-                        <tr><td>كرسي انتظار كروم</td><td>٣</td><td>٢٧/٠٦/٢٠٢٦</td><td>١,٠٥٠</td><td>مؤسسة الشرق هوم</td></tr>
-                        <tr class="table-total-row">
-                            <td colspan="3">إجمالي مشتريات الأصول بالنصف الأول</td>
-                            <td colspan="2">١٥,٦٢٠.٨٠ ريال</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Appendix 2: Fixed Assets Table -->
+        <div class="custom-table-card" style="margin-bottom:0;">
+            <h3 style="color:var(--primary); margin-bottom:15px;"><i class="fas fa-desktop" style="color:var(--secondary); margin-left:8px;"></i> الملحق (٢): بيان الأصول والتجهيزات المشتراة (٢٠٢٦م)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>الأصل / التجهيز</th><th>العدد</th><th>التاريخ</th><th>القيمة (ريال)</th><th>المورد المعتمد</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>طابعة ليزر ملون HP</td><td>١</td><td>١١/٠٥/٢٠٢٦</td><td>١,٣٥٠</td><td>شركة سمرة الرقمية</td></tr>
+                    <tr><td>مكتب سكرتارية خشب بني</td><td>٦</td><td>٢٧/٠٦/٢٠٢٦</td><td>٤,٦٨٠</td><td>الصفوة الجديدة للأثاث</td></tr>
+                    <tr><td>كرسي دوار جلد رصاصي</td><td>٦</td><td>٢٧/٠٦/٢٠٢٦</td><td>٢,٧٠٠</td><td>الصفوة الجديدة للأثاث</td></tr>
+                    <tr><td>مكيفات أوجين ٢٤ وحدة</td><td>٣</td><td>٢٧/٠٦/٢٠٢٦</td><td>٤,٥٩٠.٨٠</td><td>محل بن بلال للأجهزة</td></tr>
+                    <tr><td>خزينة حديدية للمستندات</td><td>١</td><td>٢٧/٠٦/٢٠٢٦</td><td>١,٢٥٠</td><td>الصفوة الجديدة للأثاث</td></tr>
+                    <tr><td>كرسي انتظار كروم للمراجعين</td><td>٣</td><td>٢٧/٠٦/٢٠٢٦</td><td>١,٠٥٠</td><td>مؤسسة الشرق هوم</td></tr>
+                    <tr class="table-total-row">
+                        <td colspan="3">إجمالي مشتريات الأصول بالنصف الأول</td>
+                        <td colspan="2">١٥,٦٢٠.٨٠ ريال (مقارنة بـ ٣٤,٧٧٥.٥٠ ريال في الفترة المماثلة)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

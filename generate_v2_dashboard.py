@@ -1509,7 +1509,7 @@ html_content = """<!DOCTYPE html>
         <div class="section-intro">
             <span class="eyebrow-pill">البيانات الرسمية غير المنقوصة</span>
             <h2 class="section-headline">الملاحق المالية والتفصيلية الكاملة</h2>
-            <p class="section-subtext">بيان الداعمين الـ (٢٢) كاملاً، الذمم المدينة لاشتراكات العضوية، وبيان الأصول الثابتة المعتمد</p>
+            <p class="section-subtext">بيان الداعمين الـ (٢٢) كاملاً، وبيان الأصول والتجهيزات الثابتة المعتمد</p>
         </div>
 
         <!-- Appendix 1: Complete 22 Donors Table with Search -->
@@ -1566,49 +1566,26 @@ html_content = """<!DOCTYPE html>
             </table>
         </div>
 
-        <!-- Appendix 2 & 3 -->
-        <div class="grid-2">
-            <div class="table-card" style="margin-bottom:0;">
-                <h3 style="color:var(--primary); font-size:1.2rem; margin-bottom:15px;"><i class="fas fa-address-book" style="color:var(--secondary); margin-left:8px;"></i> الملحق (٢): الذمم المدينة لاشتراكات العضوية (١٢,٠٠٠ ريال)</h3>
-                <table class="custom-table">
-                    <thead>
-                        <tr><th>أعضاء اشتراك ٢٠٢٦م (١,٠٠٠ ر.س)</th><th>أعضاء اشتراك ٢٠٢٥م (١,٠٠٠ ر.س)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>عبدالرحمن بن نبيل حمودة</td><td>أحمد بن صالح المزيني</td></tr>
-                        <tr><td>محمد بن مسلم الجهني</td><td>خالد بن محمد غليلة</td></tr>
-                        <tr><td>عبدالغني بن مروان أحمد</td><td>رهيد بنت وائل راجح</td></tr>
-                        <tr><td>منذر بن سعيد غنيم</td><td>عمار بن توفيق الحربي</td></tr>
-                        <tr><td>محمد بن مروان أحمد</td><td>خالد بن عواض العوفي</td></tr>
-                        <tr><td>ريان بن محمد القاداني</td><td>عبدالمحسن بن معيض الحربي</td></tr>
-                        <tr class="total-row">
-                            <td>إجمالي ذمم ٢٠٢٦م: ٦,٠٠٠ ريال</td>
-                            <td>إجمالي ذمم ٢٠٢٥م: ٦,٠٠٠ ريال</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="table-card" style="margin-bottom:0;">
-                <h3 style="color:var(--primary); font-size:1.2rem; margin-bottom:15px;"><i class="fas fa-desktop" style="color:var(--secondary); margin-left:8px;"></i> الملحق (٣): الأصول الثابتة المشتراة لعام ٢٠٢٦م (١٥,٦٢٠.٨٠ ريال)</h3>
-                <table class="custom-table">
-                    <thead>
-                        <tr><th>الأصل والتجهيز</th><th>العدد</th><th>القيمة (ريال)</th><th>المورد المعتمد</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>طابعة ليزر ملون HP</td><td>١</td><td>١,٣٥٠</td><td>شركة سمرة الرقمية</td></tr>
-                        <tr><td>مكتب سكرتارية خشب بني</td><td>٦</td><td>٤,٦٨٠</td><td>الصفوة الجديدة للأثاث</td></tr>
-                        <tr><td>كرسي دوار جلد رصاصي</td><td>٦</td><td>٢,٧٠٠</td><td>الصفوة الجديدة للأثاث</td></tr>
-                        <tr><td>مكيفات أوجين ٢٤ وحدة</td><td>٣</td><td>٤,٥٩٠.٨٠</td><td>محل بن بلال للأجهزة</td></tr>
-                        <tr><td>خزينة حديدية للمستندات</td><td>١</td><td>١,٢٥٠</td><td>الصفوة الجديدة للأثاث</td></tr>
-                        <tr><td>كرسي انتظار كروم للمراجعين</td><td>٣</td><td>١,٠٥٠</td><td>مؤسسة الشرق هوم</td></tr>
-                        <tr class="total-row">
-                            <td colspan="2">إجمالي الأصول المضافة</td>
-                            <td colspan="2">١٥,٦٢٠.٨٠ ريال</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Appendix 2: Fixed Assets Table -->
+        <div class="table-card" style="margin-bottom:0;">
+            <h3 style="color:var(--primary); font-size:1.25rem; margin-bottom:15px;"><i class="fas fa-desktop" style="color:var(--secondary); margin-left:8px;"></i> الملحق (٢): بيان الأصول والتجهيزات المشتراة لعام ٢٠٢٦م (١٥,٦٢٠.٨٠ ريال)</h3>
+            <table class="custom-table">
+                <thead>
+                    <tr><th>الأصل والتجهيز</th><th>العدد</th><th>القيمة (ريال)</th><th>المورد المعتمد</th><th>الاستخدام والتوزيع</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>طابعة ليزر ملون HP</td><td>١</td><td>١,٣٥٠</td><td>شركة سمرة الرقمية</td><td>طباعة التقارير والمعاملات الرسمية</td></tr>
+                    <tr><td>مكتب سكرتارية خشب بني</td><td>٦</td><td>٤,٦٨٠</td><td>الصفوة الجديدة للأثاث</td><td>تأثيث مكاتب الإدارة والمقر الجديد</td></tr>
+                    <tr><td>كرسي دوار جلد رصاصي</td><td>٦</td><td>٢,٧٠٠</td><td>الصفوة الجديدة للأثاث</td><td>كراسي مكاتب الموظفين</td></tr>
+                    <tr><td>مكيفات أوجين ٢٤ وحدة</td><td>٣</td><td>٤,٥٩٠.٨٠</td><td>محل بن بلال للأجهزة</td><td>تكييف صالات ومكاتب المقر</td></tr>
+                    <tr><td>خزينة حديدية للمستندات</td><td>١</td><td>١,٢٥٠</td><td>الصفوة الجديدة للأثاث</td><td>حفظ الوثائق والملفات المالية السرية</td></tr>
+                    <tr><td>كرسي انتظار كروم للمراجعين</td><td>٣</td><td>١,٠٥٠</td><td>مؤسسة الشرق هوم</td><td>استقبال مراجعي الجمعية والمرضى</td></tr>
+                    <tr class="total-row">
+                        <td colspan="2">إجمالي الأصول الثابتة المضافة لعام ٢٠٢٦م</td>
+                        <td colspan="3">١٥,٦٢٠.٨٠ ريال سعودي (مقارنة بـ ٣٤,٧٧٥.٥٠ ريال في الفترة المماثلة)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
