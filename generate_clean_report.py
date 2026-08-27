@@ -959,21 +959,7 @@ html_content = """<!DOCTYPE html>
         </div>
 
         <div class="royal-grid">
-            <!-- King Salman -->
-            <div class="royal-card">
-                <div>
-                    <div class="royal-emblem">
-                        <img src="assets/images/king_salman.jpg" alt="الملك سلمان بن عبدالعزيز">
-                    </div>
-                    <h3>خادم الحرمين الشريفين</h3>
-                    <div class="royal-role">الملك سلمان بن عبدالعزيز آل سعود</div>
-                </div>
-                <div class="royal-quote">
-                    «ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، وما نراه من مؤسسات خيرية في مختلف المجالات… إلا جانبًا من الجوانب المشرقة لبلادنا.»
-                </div>
-            </div>
-
-            <!-- Crown Prince Mohammed bin Salman -->
+            <!-- Crown Prince Mohammed bin Salman (Right) -->
             <div class="royal-card">
                 <div>
                     <div class="royal-emblem">
@@ -987,7 +973,21 @@ html_content = """<!DOCTYPE html>
                 </div>
             </div>
 
-            <!-- Prince Salman bin Sultan -->
+            <!-- King Salman (Center / Middle) -->
+            <div class="royal-card" style="border: 2px solid var(--secondary); box-shadow: 0 10px 30px rgba(201, 169, 110, 0.25);">
+                <div>
+                    <div class="royal-emblem" style="width:135px; height:135px; border-width:3.5px;">
+                        <img src="assets/images/king_salman.jpg" alt="الملك سلمان بن عبدالعزيز">
+                    </div>
+                    <h3 style="font-size:1.4rem;">خادم الحرمين الشريفين</h3>
+                    <div class="royal-role" style="font-weight:700;">الملك سلمان بن عبدالعزيز آل سعود</div>
+                </div>
+                <div class="royal-quote">
+                    «ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، وما نراه من مؤسسات خيرية في مختلف المجالات… إلا جانبًا من الجوانب المشرقة لبلادنا.»
+                </div>
+            </div>
+
+            <!-- Prince Salman bin Sultan (Left) -->
             <div class="royal-card">
                 <div>
                     <div class="royal-emblem">

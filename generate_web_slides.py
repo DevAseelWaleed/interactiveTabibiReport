@@ -312,19 +312,7 @@ slides_html = """<!DOCTYPE html>
                 <div class="slide-tag">القطاع غير الربحي في رؤية ٢٠٣٠</div>
             </div>
             <div class="grid-3">
-                <div class="card-box" style="background:#4A1226; color:#FFF; text-align:center;">
-                    <div>
-                        <div style="width:100px; height:100px; border-radius:50%; border:2.5px solid var(--secondary); overflow:hidden; margin:0 auto 10px; background:#FFF;">
-                            <img src="assets/images/king_salman.jpg" alt="الملك سلمان بن عبدالعزيز" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
-                        </div>
-                        <h3 style="color:var(--secondary); font-size:1.15rem;">خادم الحرمين الشريفين</h3>
-                        <p style="font-size:0.9rem; opacity:0.8; margin-bottom:15px;">الملك سلمان بن عبدالعزيز</p>
-                    </div>
-                    <p style="font-size:0.9rem; line-height:1.7; font-style:italic; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
-                        «ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، وما نراه من مؤسسات خيرية في مختلف المجالات… إلا جانبًا من الجوانب المشرقة لبلادنا.»
-                    </p>
-                </div>
-
+                <!-- Crown Prince (Right) -->
                 <div class="card-box" style="background:#4A1226; color:#FFF; text-align:center;">
                     <div>
                         <div style="width:100px; height:100px; border-radius:50%; border:2.5px solid var(--secondary); overflow:hidden; margin:0 auto 10px; background:#FFF;">
@@ -338,6 +326,21 @@ slides_html = """<!DOCTYPE html>
                     </p>
                 </div>
 
+                <!-- King Salman (Center / Middle) -->
+                <div class="card-box" style="background:#380B1B; color:#FFF; text-align:center; border:2px solid var(--secondary);">
+                    <div>
+                        <div style="width:110px; height:110px; border-radius:50%; border:3px solid var(--secondary); overflow:hidden; margin:0 auto 10px; background:#FFF;">
+                            <img src="assets/images/king_salman.jpg" alt="الملك سلمان بن عبدالعزيز" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+                        </div>
+                        <h3 style="color:var(--secondary); font-size:1.2rem;">خادم الحرمين الشريفين</h3>
+                        <p style="font-size:0.9rem; opacity:0.9; margin-bottom:15px; font-weight:700;">الملك سلمان بن عبدالعزيز</p>
+                    </div>
+                    <p style="font-size:0.9rem; line-height:1.7; font-style:italic; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
+                        «ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، وما نراه من مؤسسات خيرية في مختلف المجالات… إلا جانبًا من الجوانب المشرقة لبلادنا.»
+                    </p>
+                </div>
+
+                <!-- Prince Salman bin Sultan (Left) -->
                 <div class="card-box" style="background:#4A1226; color:#FFF; text-align:center;">
                     <div>
                         <div style="width:100px; height:100px; border-radius:50%; border:2.5px solid var(--secondary); overflow:hidden; margin:0 auto 10px; background:#FFF;">
