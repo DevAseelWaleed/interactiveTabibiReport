@@ -1,50 +1,52 @@
 # -*- coding: utf-8 -*-
-import os, sys
+"""
+Generate the complete interactive HTML slide presentation for Tabibi Civil Association H1 2026
+with verified strategic audit findings, responsive layouts, and touch swipe gestures.
+"""
+import os, sys, shutil
+
 sys.stdout.reconfigure(encoding='utf-8')
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
-output_html = os.path.join(base_dir, "التقرير_الجديد", "presentation.html")
+base_dir = r"e:\Work\زبون تقرير نصف سنوي طبيبي"
+v2_dir = os.path.join(base_dir, "التقرير_الاحترافي_المطور")
+v1_dir = os.path.join(base_dir, "التقرير_الجديد")
+output_html = os.path.join(v2_dir, "presentation.html")
 
 slides_html = """<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>العرض التقديمي التفاعلي | جمعية طبيبي الأهلية ٢٠٢٦م</title>
-    <!-- Google Fonts -->
+    <title>العرض التنفيذي للتقرير النصف سنوي ٢٠٢٦م - جمعية طبيبي الأهلية</title>
+    
+    <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
             --primary: #6B1D3A;
-            --primary-dark: #4A1226;
+            --primary-dark: #380B1B;
             --secondary: #C9A96E;
-            --secondary-light: #DFCA9B;
-            --bg-slide: #F8F7F4;
-            --bg-card: #FFFFFF;
-            --text-main: #242220;
-            --text-muted: #6B6864;
-            --success: #1E824C;
-            --warning: #D9822B;
-            --danger: #C0392B;
+            --secondary-light: #E0C99E;
+            --bg-slide: #FAFAF7;
+            --text-main: #2D2D2D;
+            --text-muted: #666666;
+            --success: #2E7D32;
+            --warning: #D97706;
+            --danger: #C62828;
             --radius-lg: 20px;
-            --radius-md: 14px;
-            --shadow-card: 0 10px 30px rgba(107, 29, 58, 0.08);
-            --transition-slide: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-md: 12px;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-            user-select: none;
+            font-family: 'Cairo', sans-serif;
         }
 
         body {
@@ -76,7 +78,7 @@ slides_html = """<!DOCTYPE html>
             transition: width 0.4s ease;
         }
 
-        /* Floating Slide Deck Container (16:9 ratio) */
+        /* Slide Deck Container */
         .deck-container {
             width: 96vw;
             max-width: 1600px;
@@ -94,99 +96,108 @@ slides_html = """<!DOCTYPE html>
         .slide {
             position: absolute;
             inset: 0;
-            padding: 50px 60px;
+            padding: 40px 50px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             opacity: 0;
-            pointer-events: none;
-            transform: scale(0.96) translateY(20px);
-            transition: var(--transition-slide);
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(30px);
             overflow-y: auto;
         }
 
         .slide.active {
             opacity: 1;
-            pointer-events: auto;
-            transform: scale(1) translateY(0);
+            visibility: visible;
+            transform: translateX(0);
         }
 
         /* Slide Header */
         .slide-header {
-            margin-bottom: 25px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            border-bottom: 2px solid rgba(107, 29, 58, 0.08);
-            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(107, 29, 58, 0.1);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
         }
 
         .slide-eyebrow {
             font-size: 0.9rem;
             color: var(--secondary);
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .slide-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary);
         }
 
-        .slide-tag {
-            background: rgba(107, 29, 58, 0.08);
+        .slide-logo {
+            font-weight: 900;
             color: var(--primary);
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Slide Layout Helpers */
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; height: 100%; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; height: 100%; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; height: 100%; }
+        /* Slide Grids */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
 
+        /* Card Box */
         .card-box {
-            background: var(--bg-card);
+            background: #FFF;
+            border: 1px solid #EBE7DF;
             border-radius: var(--radius-md);
-            padding: 25px;
-            box-shadow: var(--shadow-card);
-            border: 1px solid rgba(107, 29, 58, 0.06);
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s ease;
         }
 
-        .card-box:hover {
-            transform: translateY(-4px);
+        .card-val {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 6px 0;
         }
 
-        /* Bottom Controls Bar */
+        .card-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        /* Controls Bar */
         .controls-bar {
             position: fixed;
-            bottom: 15px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(26, 5, 14, 0.85);
-            backdrop-filter: blur(15px);
+            background: rgba(36, 7, 19, 0.9);
+            backdrop-filter: blur(12px);
             padding: 8px 24px;
             border-radius: 40px;
-            border: 1px solid rgba(201, 169, 110, 0.3);
             display: flex;
             align-items: center;
-            gap: 20px;
-            color: #FFF;
+            gap: 16px;
             z-index: 1000;
+            border: 1px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .btn-ctrl {
-            background: none;
+            background: transparent;
             border: none;
-            color: #FFF;
+            color: var(--secondary-light);
             font-size: 1.2rem;
             cursor: pointer;
             width: 36px;
@@ -195,70 +206,72 @@ slides_html = """<!DOCTYPE html>
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
         }
 
         .btn-ctrl:hover {
-            background: var(--secondary);
-            color: var(--primary-dark);
-            transform: scale(1.1);
+            background: rgba(201, 169, 110, 0.2);
+            color: #FFF;
         }
 
         .slide-counter {
+            color: #FFF;
             font-weight: 700;
             font-size: 0.95rem;
-            color: var(--secondary-light);
-            min-width: 90px;
+            min-width: 80px;
             text-align: center;
         }
 
-        /* Slide 1 Hero */
+        /* Hero Slide Specifics */
         .slide-hero {
-            background: linear-gradient(145deg, #4A1226 0%, #6B1D3A 50%, #2E0B17 100%);
+            background: linear-gradient(135deg, #380B1B 0%, #6B1D3A 60%, #1A050E 100%);
             color: #FFF;
             text-align: center;
             justify-content: center;
-            align-items: center;
-            padding: 60px;
+            gap: 25px;
         }
 
         .hero-badge {
-            width: 90px;
-            height: 90px;
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(201, 169, 110, 0.15);
             border: 2px solid var(--secondary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--secondary);
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
         }
 
-        /* Chart & Tables */
-        .chart-wrap {
-            position: relative;
-            height: 280px;
-            width: 100%;
+        /* Royal Portrait */
+        .royal-portrait {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary);
+            margin-bottom: 10px;
         }
 
+        /* Tables in Slides */
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             text-align: right;
         }
 
         th {
             background: var(--primary);
             color: #FFF;
-            padding: 10px 14px;
+            padding: 8px 12px;
             font-weight: 700;
         }
 
         td {
-            padding: 10px 14px;
+            padding: 8px 12px;
             border-bottom: 1px solid #EBE7DF;
         }
 
@@ -267,28 +280,21 @@ slides_html = """<!DOCTYPE html>
         }
 
         .badge-pill {
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
             font-weight: 700;
         }
         .bg-green { background: #E8F8F0; color: var(--success); }
         .bg-yellow { background: #FEF6EB; color: var(--warning); }
         .bg-red { background: #FDEDEC; color: var(--danger); }
 
-        /* Responsive Breakpoints & Fluid Scaling (Mobile, Tablet, Laptop, 4K) */
-        @media (min-width: 1800px) {
-            .deck-container { max-width: 1800px; max-height: 1050px; }
-            .slide-title { font-size: 2.6rem; }
-            .card-box { padding: 35px; }
-            table { font-size: 1.1rem; }
-        }
-
+        /* Responsive Breakpoints & Fluid Scaling (Mobile, Tablet, 4K) */
         @media (max-width: 1200px) {
             .deck-container { width: 98vw; height: 95vh; }
-            .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .slide-title { font-size: 1.65rem; }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .slide-title { font-size: 1.5rem; }
         }
 
         @media (max-width: 768px) {
@@ -301,46 +307,28 @@ slides_html = """<!DOCTYPE html>
                 border: none;
             }
             .slide {
-                padding: 20px 16px 90px;
+                padding: 16px 14px 85px;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
                 justify-content: flex-start;
-                gap: 16px;
+                gap: 14px;
             }
             .slide-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding-bottom: 10px;
+                gap: 6px;
+                margin-bottom: 12px;
             }
-            .slide-title { font-size: 1.35rem; }
-            .slide-eyebrow { font-size: 0.8rem; }
+            .slide-title { font-size: 1.3rem; }
             .grid-2, .grid-3, .grid-4 {
                 grid-template-columns: 1fr;
-                gap: 14px;
-                height: auto;
+                gap: 12px;
             }
-            .card-box { padding: 18px; }
             .controls-bar {
                 bottom: 10px;
                 padding: 6px 14px;
-                gap: 10px;
                 width: 92%;
-                max-width: 380px;
-                justify-content: space-between;
-            }
-            .btn-ctrl {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
-            }
-            .slide-counter {
-                font-size: 0.85rem;
-                min-width: 70px;
-            }
-            .chart-wrap {
-                height: 220px;
+                max-width: 360px;
             }
         }
     </style>
@@ -359,313 +347,345 @@ slides_html = """<!DOCTYPE html>
         <div class="slide slide-hero active" data-slide="1">
             <div>
                 <div class="hero-badge"><i class="fas fa-hand-holding-medical"></i></div>
-                <h3 style="color:var(--secondary-light); font-size:1.4rem; margin-bottom:8px;">جمعية طبيبي الأهلية بالمدينة المنورة</h3>
-                <h1 style="font-size:3.2rem; font-weight:900; margin-bottom:15px;">التقرير النصف سنوي الشامل ٢٠٢٦م</h1>
-                <div style="font-size:1.3rem; color:var(--secondary); font-weight:700; margin-bottom:25px;">الفترة من ١ يناير إلى ٣٠ يونيو ٢٠٢٦م</div>
-                <div style="font-size:1.8rem; font-weight:800; letter-spacing:2px; color:#FFF; margin-bottom:30px;">« ثـقـة  •  أثــر  •  اسـتـدامـة »</div>
+                <h3 style="color:var(--secondary-light); font-size:1.3rem; margin-bottom:8px;">جمعية طبيبي الأهلية بالمدينة المنورة</h3>
+                <h1 style="font-size:2.8rem; font-weight:900; margin-bottom:12px;">التقرير النصف سنوي الشامل ٢٠٢٦م</h1>
+                <div style="font-size:1.2rem; color:var(--secondary); font-weight:700; margin-bottom:20px;">«مدعم بالتدقيق الأدائي ومطابقة مستهدفات الخطة الاستراتيجية»</div>
+                <div style="font-size:1.5rem; font-weight:800; letter-spacing:2px; color:#FFF; margin-bottom:25px;">« ثـقـة • أثــر • اسـتـدامـة »</div>
             </div>
-            <div style="font-size:0.95rem; opacity:0.85; border-top:1px solid rgba(255,255,255,0.15); padding-top:15px; width:100%;">
-                ترخيص المركز الوطني لتنمية القطاع غير الربحي رقم: ١٠٠٠٧٣٠٧٠٠ | إعداد: أ. بيان بن سعد المحمدي - المدير التنفيذي
+            <div style="font-size:0.9rem; opacity:0.85; border-top:1px solid rgba(255,255,255,0.15); padding-top:12px; width:100%;">
+                من ١ يناير إلى ٣٠ يونيو ٢٠٢٦م | ترخيص المركز الوطني رقم: (١٠٠٠٧٣٠٧٠٠)
             </div>
         </div>
 
-        <!-- SLIDE 2: Royal Leadership -->
+        <!-- SLIDE 2: Leadership -->
         <div class="slide" data-slide="2">
             <div class="slide-header">
                 <div>
-                    <div class="slide-eyebrow">الرؤية والتمكين</div>
-                    <div class="slide-title">القيادة الرشيدة</div>
+                    <div class="slide-eyebrow">الرؤية والتمكين الوطني</div>
+                    <div class="slide-title">القيادة الرشيدة ومجلس الإدارة</div>
                 </div>
-                <div class="slide-tag">القطاع غير الربحي في رؤية ٢٠٣٠</div>
+                <div class="slide-logo"><i class="fas fa-heart-pulse"></i> طبيبي</div>
             </div>
-            <div class="grid-3">
-                <!-- Crown Prince (Right) -->
-                <div class="card-box" style="background:#4A1226; color:#FFF; text-align:center;">
-                    <div>
-                        <div style="width:100px; height:100px; border-radius:50%; border:2.5px solid var(--secondary); overflow:hidden; margin:0 auto 10px; background:#FFF;">
-                            <img src="assets/images/crown_prince.jpg" alt="الأمير محمد بن سلمان" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
-                        </div>
-                        <h3 style="color:var(--secondary); font-size:1.15rem;">سمو ولي العهد</h3>
-                        <p style="font-size:0.9rem; opacity:0.8; margin-bottom:15px;">الأمير محمد بن سلمان</p>
-                    </div>
-                    <p style="font-size:0.9rem; line-height:1.7; font-style:italic; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
-                        «نهدف للوصول إلى قطاع غير ربحي مهم، مبادر وداعم ومؤثر في التعليم والصحة والثقافة والمجالات البحثية، وسنعتمد عليه بشكل رئيسي.»
-                    </p>
+            <div class="grid-3" style="margin-top:10px;">
+                <!-- Crown Prince -->
+                <div class="card-box" style="text-align:center;">
+                    <img src="assets/images/crown_prince.jpg" alt="ولي العهد" class="royal-portrait">
+                    <h4 style="color:var(--primary); font-size:1.1rem;">صاحب السمو الملكي</h4>
+                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:8px;">الأمير محمد بن سلمان بن عبدالعزيز</p>
+                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main);">«نهدف للوصول إلى قطاع غير ربحي مهم، مبادر وداعم ومؤثر في التعليم والصحة.»</p>
                 </div>
-
-                <!-- King Salman (Center / Middle) -->
-                <div class="card-box" style="background:#380B1B; color:#FFF; text-align:center; border:2px solid var(--secondary);">
-                    <div>
-                        <div style="width:110px; height:110px; border-radius:50%; border:3px solid var(--secondary); overflow:hidden; margin:0 auto 10px; background:#FFF;">
-                            <img src="assets/images/king_salman.jpg" alt="الملك سلمان بن عبدالعزيز" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
-                        </div>
-                        <h3 style="color:var(--secondary); font-size:1.2rem;">خادم الحرمين الشريفين</h3>
-                        <p style="font-size:0.9rem; opacity:0.9; margin-bottom:15px; font-weight:700;">الملك سلمان بن عبدالعزيز</p>
-                    </div>
-                    <p style="font-size:0.9rem; line-height:1.7; font-style:italic; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
-                        «ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، وما نراه من مؤسسات خيرية في مختلف المجالات… إلا جانبًا من الجوانب المشرقة لبلادنا.»
-                    </p>
+                <!-- King Salman -->
+                <div class="card-box" style="text-align:center; border:2px solid var(--secondary); background:#FFFDF9;">
+                    <img src="assets/images/king_salman.jpg" alt="خادم الحرمين الشريفين" class="royal-portrait" style="width:110px; height:110px; border-width:3px;">
+                    <h4 style="color:var(--primary); font-size:1.15rem;">خادم الحرمين الشريفين</h4>
+                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:8px;">الملك سلمان بن عبدالعزيز آل سعود</p>
+                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main);">«ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، ومؤسساتها الخيرية.»</p>
                 </div>
-
-                <!-- Prince Salman bin Sultan (Left) -->
-                <div class="card-box" style="background:#4A1226; color:#FFF; text-align:center;">
-                    <div>
-                        <div style="width:100px; height:100px; border-radius:50%; border:2.5px solid var(--secondary); overflow:hidden; margin:0 auto 10px; background:#FFF;">
-                            <img src="assets/images/prince_salman.jpg" alt="الأمير سلمان بن سلطان" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
-                        </div>
-                        <h3 style="color:var(--secondary); font-size:1.15rem;">أمير منطقة المدينة المنورة</h3>
-                        <p style="font-size:0.9rem; opacity:0.8; margin-bottom:15px;">الأمير سلمان بن سلطان</p>
-                    </div>
-                    <p style="font-size:0.9rem; line-height:1.7; font-style:italic; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
-                        «نسعد بالإنجازات التي حققتها الجمعيات الأهلية بالمنطقة باعتبارها شريكًا استراتيجيًا للقطاعين العام والخاص في تحسين جودة الحياة وتعزيز الاستقرار.»
-                    </p>
+                <!-- Prince Salman bin Sultan -->
+                <div class="card-box" style="text-align:center;">
+                    <img src="assets/images/prince_salman.jpg" alt="أمير منطقة المدينة المنورة" class="royal-portrait">
+                    <h4 style="color:var(--primary); font-size:1.1rem;">صاحب السمو الملكي</h4>
+                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:8px;">الأمير سلمان بن سلطان بن عبدالعزيز</p>
+                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main);">«نسعد بالإنجازات التي حققتها الجمعيات الأهلية كشريك استراتيجي في جودة الحياة.»</p>
                 </div>
+            </div>
+            <div style="font-size:0.85rem; color:var(--text-muted); text-align:center;">
+                رئيس مجلس الإدارة: أ.د. منصور بن محمد النزهة | إشراف المركز الوطني لتنمية القطاع غير الربحي
             </div>
         </div>
 
-        <!-- SLIDE 3: Chairman Address & Key Highlights -->
+        <!-- SLIDE 3: Strategic Audit Summary (BSC) -->
         <div class="slide" data-slide="3">
             <div class="slide-header">
                 <div>
-                    <div class="slide-eyebrow">القيادة المؤسسية</div>
-                    <div class="slide-title">كلمة رئيس مجلس الإدارة والملخص التنفيذي</div>
+                    <div class="slide-eyebrow">التدقيق الأدائي والتقييم الاستراتيجي</div>
+                    <div class="slide-title">مؤشرات بطاقة الأداء المتوازن (BSC) والتقييم العام</div>
                 </div>
-                <div class="slide-tag">أ.د. منصور محمد النزهة</div>
+                <div class="slide-logo"><i class="fas fa-scale-balanced"></i> طبيبي</div>
             </div>
-            <div class="grid-2">
-                <div class="card-box" style="justify-content:flex-start;">
-                    <h3 style="color:var(--primary); font-size:1.25rem; margin-bottom:12px;">رسالة رئيس المجلس</h3>
-                    <p style="font-size:1.05rem; line-height:1.9; color:var(--text-main); margin-bottom:15px; text-align:justify;">
-                        يسرني أن أضع بين أيديكم التقرير النصف سنوي لجمعية طبيبي الأهلية، والذي يعكس ما تحقق خلال النصف الأول من عام ٢٠٢٦م من نمو مالي وتشغيلي، وتطور في البنية المؤسسية والحوكمة، وتوسع في الخدمات المقدمة للمستفيدين المرضى في طيبة الطيبة.
-                    </p>
-                    <p style="font-size:1.05rem; line-height:1.9; color:var(--text-main); text-align:justify;">
-                        وما تحقق من إنجازات هو ثمرة تكامل جهود مجلس الإدارة والجمعية العمومية والإدارة التنفيذية والعاملين والمتطوعين، ودعم المانحين الأفاضل.
-                    </p>
+            <div class="grid-4" style="margin-bottom:15px;">
+                <div class="card-box" style="border-right:4px solid var(--danger);">
+                    <div class="card-label">محور الأثر الطبي (٤٠٪)</div>
+                    <div class="card-val" style="color:var(--danger);">١٣.٩٥٪</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">٥.٥٨ من ٤٠ | خدمة ٧ مرضى فقط</div>
                 </div>
-
-                <div class="card-box" style="background:var(--primary); color:#FFF;">
-                    <h3 style="color:var(--secondary); font-size:1.25rem; margin-bottom:15px;">أبرز الإنجازات بالأرقام</h3>
-                    <ul style="list-style:none; line-height:2.2; font-size:1.05rem;">
-                        <li><i class="fas fa-check-circle" style="color:var(--secondary); margin-left:8px;"></i> نمو الإيرادات: <strong>+١٩٢٪</strong> (٥٨٢,١٦٧ ريال).</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--secondary); margin-left:8px;"></i> نمو المساعدات الطبية: <strong>+٩٤٣٪</strong> (٢٠٨,٦٠٥ ريال).</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--secondary); margin-left:8px;"></i> دعم ٧ حالات حرجة بنسبة تحسن <strong>١٠٠٪</strong>.</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--secondary); margin-left:8px;"></i> تفعيل ٩ شراكات صحية استراتيجية.</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--secondary); margin-left:8px;"></i> نسبة التوطين بالكادر: <strong>١٠٠٪</strong>.</li>
-                    </ul>
+                <div class="card-box" style="border-right:4px solid var(--warning);">
+                    <div class="card-label">المحور المالي (٣٠٪)</div>
+                    <div class="card-val" style="color:var(--warning);">٣٢.٩٦٪</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">٩.٨٩ من ٣٠ | ٥٨٢ ألف إيراد (+١٩٢٪)</div>
+                </div>
+                <div class="card-box" style="border-right:4px solid var(--info);">
+                    <div class="card-label">الشراكات والعمليات (١٥٪)</div>
+                    <div class="card-val" style="color:#0288D1;">٥٥.٠٠٪</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">٨.٢٥ من ١٥ | ٩ شراكات فاعلة</div>
+                </div>
+                <div class="card-box" style="border-right:4px solid var(--success);">
+                    <div class="card-label">الحوكمة والمؤسسية (١٥٪)</div>
+                    <div class="card-val" style="color:var(--success);">٦٠.٠٠٪</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">٩.٠٠ من ١٥ | ١٠٠٪ توطين ونظام قيود</div>
+                </div>
+            </div>
+            <div class="card-box" style="background:linear-gradient(135deg, #380B1B 0%, #6B1D3A 100%); color:#FFF; padding:18px 24px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+                    <div>
+                        <div style="font-size:0.9rem; color:var(--secondary); font-weight:700;">نسبة الإنجاز الاستراتيجي الإجمالية الموزونة</div>
+                        <div style="font-size:2rem; font-weight:900;">٣٢.٧٢٪ <small style="font-size:1rem; font-weight:400; opacity:0.9;">(يحتاج إلى تحسين جذري وإعادة ضبط مسار)</small></div>
+                    </div>
+                    <div style="text-align:left; font-size:0.85rem; opacity:0.85;">
+                        حالة الأهداف: ٤ مكتمل | ٢ قيد التنفيذ | ٤ متأخر | ٤ متعثر تماماً
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 4: Master KPIs Matrix -->
+        <!-- SLIDE 4: Plan vs Actual Matrix -->
         <div class="slide" data-slide="4">
             <div class="slide-header">
                 <div>
-                    <div class="slide-eyebrow">لوحة التحكم</div>
-                    <div class="slide-title">مصفوفة مؤشرات الأداء الرئيسية (KPIs)</div>
+                    <div class="slide-eyebrow">مقارنة الخطة بالواقع</div>
+                    <div class="slide-title">مصفوفة مطابقة مستهدفات الخطة الاستراتيجية لعام ٢٠٢٦م</div>
                 </div>
-                <div class="slide-tag">٨ مؤشرات محورية</div>
+                <div class="slide-logo"><i class="fas fa-table-list"></i> طبيبي</div>
             </div>
-            <div class="grid-4" style="grid-template-rows:repeat(2, 1fr);">
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">نمو الإيرادات</div>
-                    <div style="font-size:2rem; font-weight:900; color:var(--success);">+١٩٢٪</div>
-                    <span class="badge-pill bg-green">٥٨٢,١٦٧ ريال</span>
-                </div>
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">نمو المساعدات</div>
-                    <div style="font-size:2rem; font-weight:900; color:var(--success);">+٩٤٣٪</div>
-                    <span class="badge-pill bg-green">٢٠٨,٦٠٥ ريال</span>
-                </div>
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">تنفيذ الموازنة</div>
-                    <div style="font-size:2rem; font-weight:900; color:var(--warning);">٣٥.٥٧٪</div>
-                    <span class="badge-pill bg-yellow">١,٠٦٠,٦٦٦ ريال</span>
-                </div>
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">الاحتياطي النقدي</div>
-                    <div style="font-size:2rem; font-weight:900; color:var(--primary);">١٢ شهر</div>
-                    <span class="badge-pill bg-green">أرصدة ١,٠٠١,٧٥٤ ر.س</span>
-                </div>
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">نسبة التوطين</div>
-                    <div style="font-size:2rem; font-weight:900; color:var(--success);">١٠٠٪</div>
-                    <span class="badge-pill bg-green">كادر سعودي مؤهل</span>
-                </div>
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">قبول الحالات</div>
-                    <div style="font-size:2rem; font-weight:900; color:var(--warning);">٣٣.٣٪</div>
-                    <span class="badge-pill bg-yellow">٧ من ٢١ حالة</span>
-                </div>
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">متوسط كلفة المريض</div>
-                    <div style="font-size:1.8rem; font-weight:900; color:var(--primary);">٢٩,٨٠١ ر.س</div>
-                    <span class="badge-pill bg-yellow">جراحات وأورام</span>
-                </div>
-                <div class="card-box">
-                    <div style="font-size:0.9rem; color:var(--text-muted);">معدل تحسن الحالات</div>
-                    <div style="font-size:2rem; font-weight:900; color:var(--success);">١٠٠٪</div>
-                    <span class="badge-pill bg-green">أثر إيجابي كامل</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 5: Revenue Performance -->
-        <div class="slide" data-slide="5">
-            <div class="slide-header">
-                <div>
-                    <div class="slide-eyebrow">الأداء المالي</div>
-                    <div class="slide-title">مقارنة الإيرادات ومصادر الدخل (H1 2026 vs H1 2025)</div>
-                </div>
-                <div class="slide-tag">إجمالي الدخل: ٥٨٢,١٦٧ ريال (+١٩٢٪)</div>
-            </div>
-            <div class="grid-2">
-                <div class="card-box" style="padding:15px;">
-                    <table>
-                        <thead>
-                            <tr><th>بند الإيراد</th><th>٢٠٢٦م</th><th>٢٠٢٥م</th><th>النمو</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>أموال الزكاة</td><td>٧٠,٠٠٠</td><td>٨٠,٠٠٠</td><td><span class="badge-pill bg-red">-١٣٪</span></td></tr>
-                            <tr><td>علاج مقيد</td><td>٧٥,٠٠٠</td><td>٢٥,٠٠٠</td><td><span class="badge-pill bg-green">+٢٠٠٪</span></td></tr>
-                            <tr><td>المتجر الإلكتروني</td><td>١٠,٤٦٩</td><td>١٢٤</td><td><span class="badge-pill bg-green">+٨,٣٤٣٪</span></td></tr>
-                            <tr><td>منصة تبرع</td><td>١,٢٠٣</td><td>١٣,٧٨٦</td><td><span class="badge-pill bg-red">-٩١٪</span></td></tr>
-                            <tr><td>تبرعات ودعم عام</td><td>٤٠٧,٤٩٥</td><td>٦٢,٥٦٤</td><td><span class="badge-pill bg-green">+٥٥١٪</span></td></tr>
-                            <tr><td>اشتراكات العضوية</td><td>١٨,٠٠٠</td><td>١٨,٠٠٠</td><td><span class="badge-pill">٠٪</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-box">
-                    <h4 style="color:var(--primary); margin-bottom:10px;">الرسم البياني لمقارنة الإيرادات (ريال)</h4>
-                    <div class="chart-wrap"><canvas id="slideRevChart"></canvas></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 6: Budget Execution & Liquidity -->
-        <div class="slide" data-slide="6">
-            <div class="slide-header">
-                <div>
-                    <div class="slide-eyebrow">الاستقرار المالي</div>
-                    <div class="slide-title">تنفيذ الموازنة وهيكل السيولة النقدية</div>
-                </div>
-                <div class="slide-tag">أرصدة بنكية: ١,٠٠١,٧٥٤ ريال</div>
-            </div>
-            <div class="grid-2">
-                <div class="card-box">
-                    <h4 style="color:var(--primary); margin-bottom:15px;">نسب إنجاز الموازنة السنوية</h4>
-                    <div style="margin-bottom:14px;">
-                        <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:700;">
-                            <span>التبرعات والدعم (٥٨٢ ألف / ١.٥٢٧ مليون)</span><span>٤٠.٠٢٪</span>
-                        </div>
-                        <div style="height:10px; background:#EEE; border-radius:10px; margin-top:4px;"><div style="width:40%; height:100%; background:var(--primary); border-radius:10px;"></div></div>
-                    </div>
-                    <div style="margin-bottom:14px;">
-                        <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:700;">
-                            <span>المساعدات العلاجية (٢٠٨ ألف / ٧٥٠ ألف)</span><span>٢٧.٨١٪</span>
-                        </div>
-                        <div style="height:10px; background:#EEE; border-radius:10px; margin-top:4px;"><div style="width:28%; height:100%; background:var(--success); border-radius:10px;"></div></div>
-                    </div>
-                    <div style="margin-bottom:14px;">
-                        <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:700;">
-                            <span>الرواتب والأجور (١٤٤ ألف / ٤٧٢ ألف)</span><span>٣٠.٥٩٪</span>
-                        </div>
-                        <div style="height:10px; background:#EEE; border-radius:10px; margin-top:4px;"><div style="width:31%; height:100%; background:var(--secondary); border-radius:10px;"></div></div>
-                    </div>
-                    <div>
-                        <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:700;">
-                            <span>المصروفات التشغيلية (١٠٩ ألف / ١٤٢ ألف)</span><span>٧٧.٢١٪</span>
-                        </div>
-                        <div style="height:10px; background:#EEE; border-radius:10px; margin-top:4px;"><div style="width:77%; height:100%; background:var(--danger); border-radius:10px;"></div></div>
-                    </div>
-                </div>
-
-                <div class="card-box" style="background:#4A1226; color:#FFF;">
-                    <h4 style="color:var(--secondary); margin-bottom:12px;">توزيع الأرصدة والسيولة</h4>
-                    <div style="font-size:2.2rem; font-weight:900; color:var(--secondary-light); margin-bottom:15px;">١,٠٠١,٧٥٤ ر.س</div>
-                    <p style="font-size:0.95rem; margin-bottom:10px;">• البنك الأهلي السعودي: <strong>٩٣٠,٧٠٢ ريال</strong></p>
-                    <p style="font-size:0.95rem; margin-bottom:15px;">• مصرف الراجحي: <strong>٧١,٠٥٢ ريال</strong></p>
-                    <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:12px; font-size:0.9rem;">
-                        <span>الأموال المقيدة: ٣٦٧ ألف (٣٦.٧٪) | الأموال غير المقيدة: ٦٣٤ ألف (٦٣.٣٪)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 7: Medical Programs & 7 Patients -->
-        <div class="slide" data-slide="7">
-            <div class="slide-header">
-                <div>
-                    <div class="slide-eyebrow">الرعاية والأثر</div>
-                    <div class="slide-title">الحالات الطبية الـ ٧ المدعومة (برنامج جودة حياة)</div>
-                </div>
-                <div class="slide-tag">إجمالي المنصرف: ٢٠٨,٦٠٥.٣١ ريال</div>
-            </div>
-            <div class="card-box" style="padding:15px;">
+            <div style="overflow-x:auto;">
                 <table>
                     <thead>
-                        <tr><th>اسم المستفيد</th><th>الجهة العلاجية</th><th>التشخيص الطبي</th><th>المبلغ المعتمد</th></tr>
+                        <tr>
+                            <th>المؤشر المعتمد</th>
+                            <th>المستهدف السنوي</th>
+                            <th>مستهدف H1</th>
+                            <th>المنجز الفعلي</th>
+                            <th>نسبة الإنجاز</th>
+                            <th>الحالة المعتمدة</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>فايز أحمد عبدالعزيز</strong></td><td>المستشفى السعودي الألماني</td><td>سرطان الدم (علاج مناعي وكيماوي)</td><td><span class="badge-pill bg-green">١٥٠,٠٠٠ ريال</span></td></tr>
-                        <tr><td><strong>زينب عمر علي</strong></td><td>المستشفى السعودي الألماني</td><td>سرطان نخر العظم</td><td><span class="badge-pill bg-green">٣٠,٠٠٠ ريال</span></td></tr>
-                        <tr><td><strong>كندفة محمد عتبة</strong></td><td>مدينة الملك سلمان الطبية</td><td>تنويم ورعاية تحت الملاحظة</td><td><span class="badge-pill bg-green">٧,٠٠٠ ريال</span></td></tr>
-                        <tr><td><strong>شوق حسن الأنور</strong></td><td>المستشفى السعودي الألماني</td><td>منظار جراحي متقدم</td><td><span class="badge-pill bg-green">٧,٠٠٠ ريال</span></td></tr>
-                        <tr><td><strong>سامية سليمان محمد</strong></td><td>مستشفى المواساة بالمدينة</td><td>استئصال كتلة بالصدر</td><td><span class="badge-pill bg-green">٦,٣٥٠ ريال</span></td></tr>
-                        <tr><td><strong>زبيدة شمس الدين</strong></td><td>المستشفى السعودي الألماني</td><td>ورم بالقولون</td><td><span class="badge-pill bg-green">٦,٣٣٠.٣١ ريال</span></td></tr>
-                        <tr><td><strong>محمد أحمد الشرفي</strong></td><td>مستشفى المواساة بالمدينة</td><td>أشعة رنين مغناطيسي</td><td><span class="badge-pill bg-green">١,٩٢٥ ريال</span></td></tr>
+                        <tr>
+                            <td><strong>إجمالي الإيرادات الكلية</strong></td>
+                            <td>٦,٨٤٦,٠٠٠ ر.س</td>
+                            <td>٣,٤٢٣,٠٠٠ ر.س</td>
+                            <td>٥٨٢,١٦٧ ر.س</td>
+                            <td>١٧.٠١٪</td>
+                            <td><span class="badge-pill bg-red">متأخر حرِج</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>المساعدات العلاجية المباشرة</strong></td>
+                            <td>١,٥٠٠,٠٠٠ ر.س</td>
+                            <td>٧٥٠,٠٠٠ ر.س</td>
+                            <td>٢٠٨,٦٠٥ ر.س</td>
+                            <td>٢٧.٨١٪</td>
+                            <td><span class="badge-pill bg-red">متأخر حرِج</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>عدد المستفيدين المخدومين</strong></td>
+                            <td>٣٦,٦٠٦ مستفيد</td>
+                            <td>١٨,٣٠٣ مستفيد</td>
+                            <td>٧ مستفيدين</td>
+                            <td>٠.٠٣٨٪</td>
+                            <td><span class="badge-pill bg-red">متعثر تماماً</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>الاستشارات الطبية</strong></td>
+                            <td>١,٢٠٠ استشارة</td>
+                            <td>٦٠٠ استشارة</td>
+                            <td>٠ استشارة</td>
+                            <td>٠.٠٠٪</td>
+                            <td><span class="badge-pill bg-red">لم يبدأ</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>الشراكات الصحية الفاعلة</strong></td>
+                            <td>٩ شراكات</td>
+                            <td>٩ شراكات</td>
+                            <td>٩ شراكات</td>
+                            <td>١٠٠.٠٠٪</td>
+                            <td><span class="badge-pill bg-green">مكتمل</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>توطين الوظائف</strong></td>
+                            <td>١٠٠٪</td>
+                            <td>١٠٠٪</td>
+                            <td>١٠٠٪</td>
+                            <td>١٠٠.٠٠٪</td>
+                            <td><span class="badge-pill bg-green">مكتمل</span></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:8px;">
+                * المرجع المعتمد: وثيقة الخطة الاستراتيجية والتشغيلية ٢٠٢٦م وتقرير الأداء النصف سنوي.
+            </div>
         </div>
 
-        <!-- SLIDE 8: 9 Healthcare Partnerships -->
+        <!-- SLIDE 5: Financial Overview -->
+        <div class="slide" data-slide="5">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-eyebrow">الأداء المالي والاستدامة</div>
+                    <div class="slide-title">تحليل مصادر الدخل ونسب تنفيذ الموازنة</div>
+                </div>
+                <div class="slide-logo"><i class="fas fa-coins"></i> طبيبي</div>
+            </div>
+            <div class="grid-2" style="gap:20px; align-items:center;">
+                <div class="grid-2" style="gap:12px;">
+                    <div class="card-box">
+                        <div class="card-label">إجمالي الإيرادات</div>
+                        <div class="card-val">٥٨٢,١٦٧ <small style="font-size:0.9rem;">ر.س</small></div>
+                        <div style="font-size:0.8rem; color:var(--success); font-weight:700;">↑ نمو +١٩٢٪ YoY</div>
+                    </div>
+                    <div class="card-box">
+                        <div class="card-label">المنصرف الفعلي</div>
+                        <div class="card-val">١,٠٦٠,٦٦٦ <small style="font-size:0.9rem;">ر.س</small></div>
+                        <div style="font-size:0.8rem; color:var(--warning); font-weight:700;">٣٥.٥٧٪ من الموازنة</div>
+                    </div>
+                    <div class="card-box">
+                        <div class="card-label">الأرصدة النقدية</div>
+                        <div class="card-val">١,٠٠١,٧٥٤ <small style="font-size:0.9rem;">ر.س</small></div>
+                        <div style="font-size:0.8rem; color:var(--success); font-weight:700;">تغطية ١٢ شهراً</div>
+                    </div>
+                    <div class="card-box">
+                        <div class="card-label">المساعدات الطبية</div>
+                        <div class="card-val">٢٠٨,٦٠٥ <small style="font-size:0.9rem;">ر.س</small></div>
+                        <div style="font-size:0.8rem; color:var(--success); font-weight:700;">↑ نمو +٩٤٣٪</div>
+                    </div>
+                </div>
+                <div class="card-box" style="height:250px; position:relative;">
+                    <div style="font-size:0.85rem; font-weight:700; color:var(--primary); margin-bottom:6px;">مقارنة مصادر الإيرادات (H1 2026 vs H1 2025)</div>
+                    <canvas id="slideRevChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Medical Programs & Cases -->
+        <div class="slide" data-slide="6">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-eyebrow">الأثر الطبي وخدمة المستفيدين</div>
+                    <div class="slide-title">الحالات الطبية المدعومة ونسبة التحسن الكامل</div>
+                </div>
+                <div class="slide-logo"><i class="fas fa-stethoscope"></i> طبيبي</div>
+            </div>
+            <div class="grid-3" style="gap:15px; margin-bottom:10px;">
+                <div class="card-box">
+                    <div class="card-label">حالات أورام وسرطان كبرى</div>
+                    <div class="card-val">١٨٠,٠٠٠ <small style="font-size:0.9rem;">ر.س</small></div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">حالتان (سرطان دم ونخر عظم)</div>
+                </div>
+                <div class="card-box">
+                    <div class="card-label">جراحات ومناظير وفحوصات</div>
+                    <div class="card-val">٢٨,٦٠٥ <small style="font-size:0.9rem;">ر.س</small></div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">٥ حالات بمستشفيات مرجعية</div>
+                </div>
+                <div class="card-box">
+                    <div class="card-label">معدل تحسن المرضى والرضا</div>
+                    <div class="card-val" style="color:var(--success);">١٠٠٪</div>
+                    <div style="font-size:0.8rem; color:var(--success); font-weight:700;">تحسن كامل لكافة الحالات</div>
+                </div>
+            </div>
+            <div class="card-box" style="background:#FFFDF9; border:1px dashed var(--secondary);">
+                <div style="font-size:0.9rem; font-weight:700; color:var(--primary); margin-bottom:6px;">ملاحظة التدقيق الطبي:</div>
+                <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">
+                    اقتصر الصرف بالكامل على برنامج واحد (جودة الحياة - تغطية عمليات المستشفيات بمتوسط ٢٩.٨ ألف ريال للمريض)، بينما بقيت ٩ برامج استراتيجية وقائية وتثقيفية معطلة مما تسبب في انحسار عدد المستفيدين (٧ مرضى فقط).
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Health Partnerships -->
+        <div class="slide" data-slide="7">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-eyebrow">التحالفات والعمل المؤسسي</div>
+                    <div class="slide-title">شبكة الشراكات الصحية الفاعلة (٩ جهات)</div>
+                </div>
+                <div class="slide-logo"><i class="fas fa-handshake"></i> طبيبي</div>
+            </div>
+            <div class="grid-3" style="gap:14px;">
+                <div class="card-box" style="text-align:center;">
+                    <i class="fas fa-hospital" style="font-size:1.8rem; color:var(--primary); margin-bottom:6px;"></i>
+                    <div style="font-weight:800; font-size:0.95rem; color:var(--primary);">المستشفى السعودي الألماني</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">تغطية ٤ حالات أورام وجراحة</div>
+                </div>
+                <div class="card-box" style="text-align:center;">
+                    <i class="fas fa-hospital-user" style="font-size:1.8rem; color:var(--primary); margin-bottom:6px;"></i>
+                    <div style="font-weight:800; font-size:0.95rem; color:var(--primary);">مستشفى المواساة</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">جراحات أورام ورنين مغناطيسي</div>
+                </div>
+                <div class="card-box" style="text-align:center;">
+                    <i class="fas fa-square-h" style="font-size:1.8rem; color:var(--primary); margin-bottom:6px;"></i>
+                    <div style="font-weight:800; font-size:0.95rem; color:var(--primary);">مدينة الملك سلمان الطبية</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">علاج وتنويم الحالات المعقدة</div>
+                </div>
+                <div class="card-box" style="text-align:center;">
+                    <i class="fas fa-hospital" style="font-size:1.8rem; color:var(--primary); margin-bottom:6px;"></i>
+                    <div style="font-weight:800; font-size:0.95rem; color:var(--primary);">مستشفى د. حامد الأحمدي</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">خدمات طبية ورعاية تخصصية</div>
+                </div>
+                <div class="card-box" style="text-align:center;">
+                    <i class="fas fa-hospital" style="font-size:1.8rem; color:var(--primary); margin-bottom:6px;"></i>
+                    <div style="font-weight:800; font-size:0.95rem; color:var(--primary);">مستشفى المدينة الوطني</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">تنسيق التحويلات والعيادات</div>
+                </div>
+                <div class="card-box" style="text-align:center;">
+                    <i class="fas fa-wheelchair" style="font-size:1.8rem; color:var(--primary); margin-bottom:6px;"></i>
+                    <div style="font-weight:800; font-size:0.95rem; color:var(--primary);">جمعية جنى للتأهيل</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">رعاية وتأهيل الفتيات المعاقات</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Critical Gaps -->
         <div class="slide" data-slide="8">
             <div class="slide-header">
                 <div>
-                    <div class="slide-eyebrow">التحالفات الطبية</div>
-                    <div class="slide-title">شبكة الشراكات الصحية الـ ٩ المفعّلة</div>
+                    <div class="slide-eyebrow">إدارة المخاطر والتقييم</div>
+                    <div class="slide-title">تحليل الفجوات الاستراتيجية والتشغيلية</div>
                 </div>
-                <div class="slide-tag">تسريع الإحالة وجودة الرعاية</div>
+                <div class="slide-logo"><i class="fas fa-triangle-exclamation"></i> طبيبي</div>
             </div>
-            <div class="grid-3">
-                <div class="card-box"><h4 style="color:var(--primary);">المستشفى السعودي الألماني</h4><p style="font-size:0.88rem; color:var(--text-muted);">علاج الأورام وسرطانات الدم والمناظير</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">مستشفى المواساة</h4><p style="font-size:0.88rem; color:var(--text-muted);">الجراحات الدقيقة والأشعة المقطعية والرنين</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">مدينة الملك سلمان الطبية</h4><p style="font-size:0.88rem; color:var(--text-muted);">الرعاية المرجعية التخصصية والتنويم</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">مستشفى د. حامد الأحمدي</h4><p style="font-size:0.88rem; color:var(--text-muted);">جراحات اليوم الواحد والعيادات الاستشارية</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">مستشفى المدينة الوطني</h4><p style="font-size:0.88rem; color:var(--text-muted);">خدمات الطوارئ والملاحظة والتحاليل</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">مستشفى المدينة الطبي العام</h4><p style="font-size:0.88rem; color:var(--text-muted);">الفحوصات العامة ورعاية الأمراض المزمنة</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">مستشفى واد الطبي</h4><p style="font-size:0.88rem; color:var(--text-muted);">علاج الإصابات الرياضية وجراحة العظام</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">شركة مداواة ورعاية</h4><p style="font-size:0.88rem; color:var(--text-muted);">توفير الأدوية والمستلزمات الطبية المنزلية</p></div>
-                <div class="card-box"><h4 style="color:var(--primary);">جمعية جَنَى لتأهيل المعاقات</h4><p style="font-size:0.88rem; color:var(--text-muted);">التأهيل الطبي والتكامل مع ذوي الإعاقة</p></div>
+            <div class="grid-2" style="gap:16px;">
+                <div class="card-box" style="border-top:4px solid var(--danger);">
+                    <div style="font-weight:800; color:var(--danger); font-size:1.05rem; margin-bottom:6px;">١. فجوة أعداد المستفيدين (-٩٩.٩٦٪)</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">خدمة ٧ مرضى فقط مقابل مستهدف ٣٦,٦٠٦ مستفيد لحصر الدعم بالجراحات باهظة التكلفة وإيقاف العيادات الوقائية.</div>
+                </div>
+                <div class="card-box" style="border-top:4px solid var(--warning);">
+                    <div style="font-weight:800; color:var(--warning); font-size:1.05rem; margin-bottom:6px;">٢. تشدد لائحة المساعدات (رفض ٦٦.٧٪)</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">رفض ١٤ حالة من أصل ٢١ متقدمة، مما تسبب في عجز صرف موازنة العلاج المعتمدة (صرف ٢٠٨ ألف من ٧٥٠ ألف).</div>
+                </div>
+                <div class="card-box" style="border-top:4px solid var(--danger);">
+                    <div style="font-weight:800; color:var(--danger); font-size:1.05rem; margin-bottom:6px;">٣. تركز الإيرادات وضعف المنح (٧.٤٪)</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">٤٣٪ من الدخل من متبرع فردي واحد (٢٥٠ ألف ريال)، مع قبول منحتين فقط من أصل ٢٧ طلباً تمت متابعتها.</div>
+                </div>
+                <div class="card-box" style="border-top:4px solid var(--warning);">
+                    <div style="font-weight:800; color:var(--warning); font-size:1.05rem; margin-bottom:6px;">٤. تراجع النشاط التطوعي المنظم</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">تنفيذ ٤ فرص تطوعية فقط دون توثيق للساعات مقابل مستهدف سنوي قدره ٣,٠٠٠ ساعة بقيمة ٢٠٢.٥ ألف ريال.</div>
+                </div>
             </div>
         </div>
 
-        <!-- SLIDE 9: Governance & 3-Phase Roadmap -->
+        <!-- SLIDE 9: Corrective Action Roadmap -->
         <div class="slide" data-slide="9">
             <div class="slide-header">
                 <div>
-                    <div class="slide-eyebrow">التحول المؤسسي</div>
-                    <div class="slide-title">الحوكمة وخارطة طريق النصف الثاني (٣ مراحل)</div>
+                    <div class="slide-eyebrow">خارطة طريق التصحيح</div>
+                    <div class="slide-title">التوصيات الاستراتيجية للنصف الثاني (H2 2026)</div>
                 </div>
-                <div class="slide-tag">الاستدامة والجاهزية</div>
+                <div class="slide-logo"><i class="fas fa-road"></i> طبيبي</div>
             </div>
-            <div class="grid-3">
-                <div class="card-box" style="background:#4A1226; color:#FFF;">
-                    <div style="font-size:1.5rem; color:var(--secondary); font-weight:900; margin-bottom:8px;">المرحلة ١</div>
-                    <h4 style="color:var(--secondary-light); margin-bottom:10px;">استكمال الحوكمة ونوى</h4>
-                    <p style="font-size:0.92rem; line-height:1.7;">• استيفاء معايير الامتثال والحوكمة المعتمدة.<br>• تفعيل منصة نوى للمنح والشراكات.<br>• توظيف القوائم المالية لفتح مسارات الدعم.</p>
+            <div class="grid-2" style="gap:16px;">
+                <div class="card-box" style="border-right:4px solid var(--primary);">
+                    <div style="font-weight:800; color:var(--primary); font-size:1.05rem; margin-bottom:6px;">١. تعديل لائحة المساعدات فوراً</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">وضع استثناءات إنسانية مرنة لرفع نسبة القبول وصرف المتبقي من الموازنة العلاجية (٥٤١ ألف ريال).</div>
                 </div>
-
-                <div class="card-box" style="background:#4A1226; color:#FFF;">
-                    <div style="font-size:1.5rem; color:var(--secondary); font-weight:900; margin-bottom:8px;">المرحلة ٢</div>
-                    <h4 style="color:var(--secondary-light); margin-bottom:10px;">تنمية الموارد وبطاقة طبيبي</h4>
-                    <p style="font-size:0.92rem; line-height:1.7;">• إطلاق مبادرة بطاقة طبيبي للخصومات الطبية.<br>• تعديل لائحة المساعدات لرفع نسبة القبول.<br>• بناء قاعدة بيانات المانحين والأوقاف.</p>
+                <div class="card-box" style="border-right:4px solid var(--primary);">
+                    <div style="font-weight:800; color:var(--primary); font-size:1.05rem; margin-bottom:6px;">٢. إطلاق الاستشارات والقوافل الطبية</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">تشغيل برامج «استشارات» و «أطمئن» لخدمة آلاف المستفيدين بتكلفة تشغيلية منخفضة لتعويض فجوة الأثر.</div>
                 </div>
-
-                <div class="card-box" style="background:#4A1226; color:#FFF;">
-                    <div style="font-size:1.5rem; color:var(--secondary); font-weight:900; margin-bottom:8px;">المرحلة ٣</div>
-                    <h4 style="color:var(--secondary-light); margin-bottom:10px;">الاستعداد المبكر لـ Q1 2027</h4>
-                    <p style="font-size:0.92rem; line-height:1.7;">• تقديم العروض الاستثمارية للصناديق الكبرى.<br>• تفعيل دور الجمعية العمومية والمجلس.<br>• قياس الأثر الصحي والاجتماعي المستدام.</p>
+                <div class="card-box" style="border-right:4px solid var(--primary);">
+                    <div style="font-weight:800; color:var(--primary); font-size:1.05rem; margin-bottom:6px;">٣. اعتماد موازنة الحوكمة ومنصة نوى</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">التعاقد مع الفريق الاستشاري (١٥-٢١ ألف ريال) لاستكمال الامتثال وتأهيل الجمعية للمنح الكبرى.</div>
+                </div>
+                <div class="card-box" style="border-right:4px solid var(--primary);">
+                    <div style="font-weight:800; color:var(--primary); font-size:1.05rem; margin-bottom:6px;">٤. إطلاق «بطاقة طبيبي» وتوحيد الخطة</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">إصدار بطاقة مزايا صحية مع المستشفيات الشريكة ومواءمة أرقام الخطة الاستراتيجية مع الموازنة الواقعية.</div>
                 </div>
             </div>
         </div>
@@ -673,36 +693,35 @@ slides_html = """<!DOCTYPE html>
         <!-- SLIDE 10: Closing -->
         <div class="slide slide-hero" data-slide="10">
             <div>
-                <div class="hero-badge"><i class="fas fa-heart"></i></div>
-                <h1 style="font-size:2.8rem; font-weight:900; color:var(--secondary-light); margin-bottom:15px;">شكراً لثقتكم ودعمكم المستمر</h1>
-                <p style="font-size:1.3rem; max-width:750px; margin:0 auto 30px; opacity:0.9;">
-                    معاً نواصل العطاء لخدمة المرضى المحتاجين وتعزيز الرعاية الصحية في طيبة الطيبة
+                <div class="hero-badge"><i class="fas fa-handshake-angle"></i></div>
+                <h1 style="font-size:2.4rem; font-weight:900; margin-bottom:12px;">شكراً لشركاء العطاء والتميز</h1>
+                <p style="font-size:1.15rem; color:var(--secondary-light); max-width:700px; margin:0 auto 20px; line-height:1.8;">
+                    «نحو قطاع غير ربحي فاعل ومستدام يخدم ضيوف وأهالي طيبة الطيبة بإحسان وإتقان»
                 </p>
-                <div style="display:flex; justify-content:center; gap:40px; font-size:1.1rem; color:var(--secondary);">
-                    <span><i class="fas fa-phone"></i> 00966555606347</span>
-                    <span><i class="fas fa-envelope"></i> tabibi2025med@gmail.com</span>
-                    <span><i class="fas fa-map-marker-alt"></i> المدينة المنورة - حي الفتح</span>
+                <div style="display:flex; justify-content:center; gap:25px; flex-wrap:wrap; font-size:0.95rem; margin-bottom:20px;">
+                    <div><i class="fas fa-phone" style="color:var(--secondary); margin-left:6px;"></i> 0555606347</div>
+                    <div><i class="fas fa-envelope" style="color:var(--secondary); margin-left:6px;"></i> tabibi2025med@gmail.com</div>
+                    <div><i class="fas fa-location-dot" style="color:var(--secondary); margin-left:6px;"></i> المدينة المنورة - حي الفتح</div>
                 </div>
             </div>
-            <div style="font-size:0.9rem; opacity:0.7;">
-                جميع الحقوق محفوظة © جمعية طبيبي الأهلية ٢٠٢٦م
+            <div style="font-size:0.85rem; opacity:0.8;">
+                جمعية طبيبي الأهلية بالمدينة المنورة © ٢٠٢٦م | ترخيص رقم: ١٠٠٠٧٣٠٧٠٠
             </div>
         </div>
 
     </div>
 
-    <!-- Bottom Controls Floating Pill -->
+    <!-- Floating Navigation Bar -->
     <div class="controls-bar">
-        <button class="btn-ctrl" id="btnPrev" title="الشريحة السابقة (السهم الأيمن)"><i class="fas fa-chevron-right"></i></button>
-        <div class="slide-counter" id="slideCounter">شريحة ١ من ١٠</div>
-        <button class="btn-ctrl" id="btnNext" title="الشريحة التالية (السهم الأيسر)"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn-ctrl" id="btnPrev" title="السابق"><i class="fas fa-chevron-right"></i></button>
+        <span class="slide-counter" id="slideCounter">شريحة ١ من ١٠</span>
+        <button class="btn-ctrl" id="btnNext" title="التالي"><i class="fas fa-chevron-left"></i></button>
         <button class="btn-ctrl" id="btnFullscreen" title="ملء الشاشة"><i class="fas fa-expand"></i></button>
     </div>
 
     <script>
         let currentSlide = 1;
         const totalSlides = 10;
-
         const slides = document.querySelectorAll('.slide');
         const counter = document.getElementById('slideCounter');
         const progress = document.getElementById('progressFill');
@@ -767,9 +786,9 @@ slides_html = """<!DOCTYPE html>
             const diffY = touchEndY - touchStartY;
             if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
                 if (diffX < 0) {
-                    showSlide(currentSlide + 1); // Swipe left -> Next slide
+                    showSlide(currentSlide + 1);
                 } else {
-                    showSlide(currentSlide - 1); // Swipe right -> Prev slide
+                    showSlide(currentSlide - 1);
                 }
             }
         }
@@ -800,5 +819,8 @@ slides_html = """<!DOCTYPE html>
 
 with open(output_html, "w", encoding="utf-8") as f:
     f.write(slides_html)
+
+# Copy to v1 folder as well
+shutil.copy2(output_html, os.path.join(v1_dir, "presentation.html"))
 
 print(f"Generated interactive web presentation slide deck successfully: {output_html}")
