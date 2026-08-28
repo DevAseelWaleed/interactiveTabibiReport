@@ -233,12 +233,14 @@
 
         /* Royal Portrait */
         .royal-portrait {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--secondary);
-            margin-bottom: 10px;
+            border: 3px solid var(--secondary);
+            margin: 0 auto 10px auto;
+            display: block;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
 
         /* Tables in Slides */
@@ -352,30 +354,38 @@
                 </div>
                 <div class="slide-logo"><i class="fas fa-heart-pulse"></i> طبيبي</div>
             </div>
-            <div class="grid-3" style="margin-top:10px;">
-                <!-- Crown Prince -->
-                <div class="card-box" style="text-align:center;">
-                    <img src="assets/images/crown_prince.jpg" alt="ولي العهد" class="royal-portrait">
-                    <h4 style="color:var(--primary); font-size:1.1rem;">صاحب السمو الملكي</h4>
-                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:8px;">الأمير محمد بن سلمان بن عبدالعزيز</p>
-                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main);">«نهدف للوصول إلى قطاع غير ربحي مهم، مبادر وداعم ومؤثر في التعليم والصحة.»</p>
+            <div class="grid-3" style="margin-top:10px; align-items:stretch;">
+                <!-- Crown Prince (Right) -->
+                <div class="card-box" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:flex-start;">
+                    <div style="display:flex; justify-content:center; align-items:center; width:100%; margin-bottom:12px;">
+                        <img src="assets/images/crown_prince.jpg" alt="ولي العهد" class="royal-portrait">
+                    </div>
+                    <h4 style="color:var(--primary); font-size:1.15rem; margin-bottom:3px;">صاحب السمو الملكي</h4>
+                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:10px;">الأمير محمد بن سلمان بن عبدالعزيز</p>
+                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main); text-align:center;">«نهدف للوصول إلى قطاع غير ربحي مهم، مبادر وداعم ومؤثر في التعليم والصحة.»</p>
                 </div>
-                <!-- King Salman -->
-                <div class="card-box" style="text-align:center; border:2px solid var(--secondary); background:#FFFDF9;">
-                    <img src="assets/images/king_salman.jpg" alt="خادم الحرمين الشريفين" class="royal-portrait" style="width:110px; height:110px; border-width:3px;">
-                    <h4 style="color:var(--primary); font-size:1.15rem;">خادم الحرمين الشريفين</h4>
-                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:8px;">الملك سلمان بن عبدالعزيز آل سعود</p>
-                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main);">«ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، ومؤسساتها الخيرية.»</p>
+
+                <!-- King Salman (Center / Middle) -->
+                <div class="card-box" style="text-align:center; border:2px solid var(--secondary); background:#FFFDF9; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; box-shadow:0 8px 25px rgba(201, 169, 110, 0.18);">
+                    <div style="display:flex; justify-content:center; align-items:center; width:100%; margin-bottom:12px;">
+                        <img src="assets/images/king_salman.jpg" alt="خادم الحرمين الشريفين" class="royal-portrait" style="width:120px; height:120px; border-width:3.5px;">
+                    </div>
+                    <h4 style="color:var(--primary); font-size:1.2rem; margin-bottom:3px;">خادم الحرمين الشريفين</h4>
+                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:10px;">الملك سلمان بن عبدالعزيز آل سعود</p>
+                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main); text-align:center;">«ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، ومؤسساتها الخيرية.»</p>
                 </div>
-                <!-- Prince Salman bin Sultan -->
-                <div class="card-box" style="text-align:center;">
-                    <img src="assets/images/prince_salman.jpg" alt="أمير منطقة المدينة المنورة" class="royal-portrait">
-                    <h4 style="color:var(--primary); font-size:1.1rem;">صاحب السمو الملكي</h4>
-                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:8px;">الأمير سلمان بن سلطان بن عبدالعزيز</p>
-                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main);">«نسعد بالإنجازات التي حققتها الجمعيات الأهلية كشريك استراتيجي في جودة الحياة.»</p>
+
+                <!-- Prince Salman bin Sultan (Left) -->
+                <div class="card-box" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:flex-start;">
+                    <div style="display:flex; justify-content:center; align-items:center; width:100%; margin-bottom:12px;">
+                        <img src="assets/images/prince_salman.jpg" alt="أمير منطقة المدينة المنورة" class="royal-portrait">
+                    </div>
+                    <h4 style="color:var(--primary); font-size:1.15rem; margin-bottom:3px;">صاحب السمو الملكي</h4>
+                    <p style="font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:10px;">الأمير سلمان بن سلطان بن عبدالعزيز</p>
+                    <p style="font-size:0.85rem; font-style:italic; line-height:1.6; color:var(--text-main); text-align:center;">«نسعد بالإنجازات التي حققتها الجمعيات الأهلية كشريك استراتيجي في جودة الحياة.»</p>
                 </div>
             </div>
-            <div style="font-size:0.85rem; color:var(--text-muted); text-align:center;">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-align:center; margin-top:8px;">
                 رئيس مجلس الإدارة: أ.د. منصور بن محمد النزهة | إشراف المركز الوطني لتنمية القطاع غير الربحي
             </div>
         </div>
