@@ -236,14 +236,13 @@ slides_html = """<!DOCTYPE html>
             margin: 0 auto 20px;
         }
 
-        /* Charts */
+        /* Chart & Tables */
         .chart-wrap {
             position: relative;
             height: 280px;
             width: 100%;
         }
 
-        /* Table styles in slides */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -276,6 +275,74 @@ slides_html = """<!DOCTYPE html>
         .bg-green { background: #E8F8F0; color: var(--success); }
         .bg-yellow { background: #FEF6EB; color: var(--warning); }
         .bg-red { background: #FDEDEC; color: var(--danger); }
+
+        /* Responsive Breakpoints & Fluid Scaling (Mobile, Tablet, Laptop, 4K) */
+        @media (min-width: 1800px) {
+            .deck-container { max-width: 1800px; max-height: 1050px; }
+            .slide-title { font-size: 2.6rem; }
+            .card-box { padding: 35px; }
+            table { font-size: 1.1rem; }
+        }
+
+        @media (max-width: 1200px) {
+            .deck-container { width: 98vw; height: 95vh; }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .slide-title { font-size: 1.65rem; }
+        }
+
+        @media (max-width: 768px) {
+            body { height: auto; min-height: 100dvh; overflow-y: auto; }
+            .deck-container {
+                width: 100vw;
+                height: 100dvh;
+                max-height: none;
+                border-radius: 0;
+                border: none;
+            }
+            .slide {
+                padding: 20px 16px 90px;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 16px;
+            }
+            .slide-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+            .slide-title { font-size: 1.35rem; }
+            .slide-eyebrow { font-size: 0.8rem; }
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                height: auto;
+            }
+            .card-box { padding: 18px; }
+            .controls-bar {
+                bottom: 10px;
+                padding: 6px 14px;
+                gap: 10px;
+                width: 92%;
+                max-width: 380px;
+                justify-content: space-between;
+            }
+            .btn-ctrl {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+            .slide-counter {
+                font-size: 0.85rem;
+                min-width: 70px;
+            }
+            .chart-wrap {
+                height: 220px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -677,6 +744,35 @@ slides_html = """<!DOCTYPE html>
                 document.exitFullscreen();
             }
         });
+
+        // Touch Swipe Gesture Navigation (Mobile & Tablets)
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+                if (diffX < 0) {
+                    showSlide(currentSlide + 1); // Swipe left -> Next slide
+                } else {
+                    showSlide(currentSlide - 1); // Swipe right -> Prev slide
+                }
+            }
+        }
 
         // Slide Chart Initialization
         window.onload = function() {
