@@ -783,7 +783,8 @@ html_content = """<!DOCTYPE html>
 
         /* Footer */
         .site-footer {
-            background: #2E0B17;
+            background: linear-gradient(145deg, #2E0B17 0%, #541228 45%, #1F0710 100%);
+            border-top: 3px solid var(--secondary);
             color: #FFFFFF;
             padding: 70px 25px 35px;
             position: relative;

@@ -617,9 +617,11 @@ html_content = """<!DOCTYPE html>
 
         /* Footer */
         .footer-v2 {
-            background: #240713;
+            background: linear-gradient(145deg, #2E0B17 0%, #541228 45%, #1F0710 100%);
+            border-top: 3px solid var(--secondary);
             color: #FFF;
             padding: 70px 30px 35px;
+            position: relative;
         }
 
         .footer-grid {
