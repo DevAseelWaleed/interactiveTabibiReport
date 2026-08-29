@@ -1071,8 +1071,8 @@ html_content = """<!DOCTYPE html>
 
             <div class="exec-card" style="border-right: 4px solid var(--warning);">
                 <div style="font-size:0.85rem; color:var(--text-muted); font-weight:700; margin-bottom:6px;">المحور المالي والموازنة (٣٠٪)</div>
-                <div style="font-size:1.8rem; font-weight:900; color:var(--warning); margin-bottom:6px;">٣٢.٩٦٪</div>
-                <div style="font-size:0.85rem; color:var(--text-muted);">٩.٨٩ من ٣٠ نقطة | تحصيل ٥٨٢ ألف ر.س (+١٩٢٪ نمو)</div>
+                <div style="font-size:1.8rem; font-weight:900; color:var(--success); margin-bottom:6px;">٦٣.٠١٪</div>
+                <div style="font-size:0.85rem; color:var(--text-muted);">١٨.٩٠ من ٣٠ نقطة | تحصيل ٥٨٢ ألف ر.س (+١٩٢٪ نمو)</div>
             </div>
 
             <div class="exec-card" style="border-right: 4px solid var(--info);">
@@ -1092,7 +1092,7 @@ html_content = """<!DOCTYPE html>
         <div style="background:linear-gradient(135deg, #380B1B 0%, #541228 50%, #240713 100%); color:#FFF; padding:25px 30px; border-radius:var(--radius-lg); margin-bottom:35px; border:2px solid var(--secondary); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
             <div>
                 <span class="tag-pill" style="background:var(--secondary); color:#2E0B17; font-weight:800; margin-bottom:8px; display:inline-block;">التقييم العام المعتمد للأداء</span>
-                <h3 style="color:#FFF; font-size:1.6rem; margin:0;">نسبة الإنجاز الاستراتيجي الإجمالية: <span style="color:var(--secondary-light); font-weight:900;">٣٢.٧٢٪</span></h3>
+                <h3 style="color:#FFF; font-size:1.6rem; margin:0;">نسبة الإنجاز الاستراتيجي الإجمالية: <span style="color:var(--secondary-light); font-weight:900;">٤١.٧٣٪</span></h3>
                 <p style="margin:6px 0 0; opacity:0.85; font-size:0.95rem;">التقييم الموزون: <strong>يحتاج إلى تحسين جذري وإعادة ضبط مسار (Needs Significant Improvement & Realignment)</strong></p>
             </div>
             <div style="text-align:left;">
@@ -1127,14 +1127,14 @@ html_content = """<!DOCTYPE html>
                 <tbody>
                     <tr>
                         <td>١</td>
-                        <td><strong>الإيرادات المالية الكلية</strong></td>
+                        <td><strong>الإيرادات المالية الكلية (المعدلة)</strong></td>
                         <td>إجمالي الدخل (ريال)</td>
-                        <td>٦,٨٤٦,٠٠٠</td>
-                        <td>٣,٤٢٣,٠٠٠</td>
+                        <td>١,٥٢٧,٠٠٠</td>
+                        <td>٧٦٣,٥٠٠</td>
                         <td>٥٨٢,١٦٧.٥٢</td>
-                        <td><span class="tag-pill tag-danger">١٧.٠١٪</span></td>
-                        <td><span class="badge-pill bg-red">متأخر حرِج</span></td>
-                        <td>فجوة بين طموح الخطة والإيراد الفعلي (ص ١١)</td>
+                        <td><span class="tag-pill tag-success">٧٦.٢٥٪</span></td>
+                        <td><span class="badge-pill bg-green">متقدم وجيد</span></td>
+                        <td>تحقيق ٧٦.٢٥٪ من مستهدف النصف الأول (٣٨.١٢٪ من السنوي)</td>
                     </tr>
                     <tr>
                         <td>٢</td>

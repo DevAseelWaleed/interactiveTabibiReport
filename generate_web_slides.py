@@ -421,8 +421,8 @@ slides_html = """<!DOCTYPE html>
                 </div>
                 <div class="card-box" style="border-right:4px solid var(--warning);">
                     <div class="card-label">المحور المالي (٣٠٪)</div>
-                    <div class="card-val" style="color:var(--warning);">٣٢.٩٦٪</div>
-                    <div style="font-size:0.8rem; color:var(--text-muted);">٩.٨٩ من ٣٠ | ٥٨٢ ألف إيراد (+١٩٢٪)</div>
+                    <div class="card-val" style="color:var(--success);">٦٣.٠١٪</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">١٨.٩٠ من ٣٠ | ٥٨٢ ألف إيراد (+١٩٢٪)</div>
                 </div>
                 <div class="card-box" style="border-right:4px solid var(--info);">
                     <div class="card-label">الشراكات والعمليات (١٥٪)</div>
@@ -439,7 +439,7 @@ slides_html = """<!DOCTYPE html>
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
                     <div>
                         <div style="font-size:0.9rem; color:var(--secondary); font-weight:700;">نسبة الإنجاز الاستراتيجي الإجمالية الموزونة</div>
-                        <div style="font-size:2rem; font-weight:900;">٣٢.٧٢٪ <small style="font-size:1rem; font-weight:400; opacity:0.9;">(يحتاج إلى تحسين جذري وإعادة ضبط مسار)</small></div>
+                        <div style="font-size:2rem; font-weight:900;">٤١.٧٣٪ <small style="font-size:1rem; font-weight:400; opacity:0.9;">(تحسن ملحوظ بعد تعديل المستهدف المالي إلى ١.٥ مليون)</small></div>
                     </div>
                     <div style="text-align:left; font-size:0.85rem; opacity:0.85;">
                         حالة الأهداف: ٤ مكتمل | ٢ قيد التنفيذ | ٤ متأخر | ٤ متعثر تماماً
@@ -471,12 +471,12 @@ slides_html = """<!DOCTYPE html>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>إجمالي الإيرادات الكلية</strong></td>
-                            <td>٦,٨٤٦,٠٠٠ ر.س</td>
-                            <td>٣,٤٢٣,٠٠٠ ر.س</td>
+                            <td><strong>إجمالي الإيرادات (المعدلة)</strong></td>
+                            <td>١,٥٢٧,٠٠٠ ر.س</td>
+                            <td>٧٦٣,٥٠٠ ر.س</td>
                             <td>٥٨٢,١٦٧ ر.س</td>
-                            <td>١٧.٠١٪</td>
-                            <td><span class="badge-pill bg-red">متأخر حرِج</span></td>
+                            <td>٧٦.٢٥٪</td>
+                            <td><span class="badge-pill bg-green">متقدم وجيد</span></td>
                         </tr>
                         <tr>
                             <td><strong>المساعدات العلاجية المباشرة</strong></td>
