@@ -854,26 +854,100 @@ html_content = """<!DOCTYPE html>
             </div>
         </div>
 
-        <!-- Chairman Message Box -->
-        <div class="exec-card" style="padding:45px;">
-            <div class="grid-2" style="align-items:center;">
+                <!-- Page 6: Official Chairman Speech with Portrait (كلمة رئيس مجلس الإدارة) -->
+        <div class="exec-card" style="background:linear-gradient(135deg, #4A1024 0%, #6B1D3A 100%); color:#FFF; padding:40px; margin-bottom:40px; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); border:2px solid var(--secondary);">
+            <div class="grid-2" style="align-items:center; gap:40px;">
+                <!-- Right: Full Speech Text -->
                 <div>
-                    <span class="eyebrow-pill">كلمة رئيس مجلس الإدارة</span>
-                    <h3 style="color:var(--primary); font-size:1.8rem; margin-bottom:15px;">رسالة القيادة المؤسسية</h3>
-                    <p style="font-size:1.05rem; line-height:2.0; color:var(--text-body); text-align:justify; margin-bottom:15px;">
-                        «يسرني أن أضع بين أيديكم التقرير النصف سنوي لجمعية طبيبي الأهلية، والذي يعكس ما تحقق خلال النصف الأول من عام ٢٠٢٦م من نمو مالي وتشغيلي، وتطور في البنية المؤسسية والحوكمة، وتوسع في الخدمات المقدمة للمستفيدين المرضى في طيبة الطيبة. وننظر إلى هذا التقرير بوصفه أداة للتقييم والتطوير المستمر بما يرفع الأثر الصحي والاجتماعي المحقق.»
+                    <div style="font-size:1.1rem; font-weight:700; color:var(--secondary); margin-bottom:8px; text-align:right;">
+                        بسم الله الرحمن الرحيم
+                    </div>
+                    <h3 style="color:#FFF; font-size:1.6rem; margin-bottom:15px;">كلمة رئيس مجلس الإدارة</h3>
+                    <p style="font-size:0.95rem; color:#F0EBE1; margin-bottom:12px; font-weight:600;">
+                        الحمد لله رب العالمين، والصلاة والسلام على نبينا محمد وعلى آله وصحبه أجمعين.<br>
+                        الإخوة والأخوات أعضاء الجمعية العمومية، وأعضاء مجلس الإدارة، والزملاء والزميلات في جمعية طبيبي الأهلية،<br>
+                        السلام عليكم ورحمة الله وبركاته،
                     </p>
-                    <div style="font-weight:800; color:var(--primary); font-size:1.15rem;">
-                        أ.د. منصور محمد النزهة <br>
-                        <span style="font-size:0.95rem; color:var(--text-muted); font-weight:600;">رئيس مجلس الإدارة | جمعية طبيبي الأهلية</span>
+                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
+                        يسعدني أن أرحب بكم في هذا اللقاء الذي نستعرض من خلاله التقرير النصف سنوي لجمعية طبيبي الأهلية، والذي يأتي تأكيدًا على حرص الجمعية على الشفافية، والحوكمة، ووضوح الإنجاز، ومشاركة أصحاب العلاقة في مسيرة العمل.
+                    </p>
+                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
+                        لقد شهد النصف الأول من هذا العام جهودًا متواصلة لتطوير أعمال الجمعية إداريًا وماليًا وبرامجيًا، وتحسين كفاءة الأداء، وتعزيز جودة الخدمات والمبادرات التي تقدمها الجمعية للمستفيدين.
+                    </p>
+                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
+                        وما تحقق من أعمال وإنجازات لم يكن ليتحقق بعد توفيق الله إلا بفضل تكامل الجهود بين مجلس الإدارة والجمعية العمومية والإدارة التنفيذية، وبفضل ما نجده من دعم وثقة من شركائنا وداعمينا، الذين نقدر لهم إسهاماتهم ووقوفهم المستمر مع رسالة الجمعية وأهدافها.
+                    </p>
+                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
+                        كما أن استعراض هذا التقرير لا يمثل مجرد عرض لما تم إنجازه، بل هو وقفة تقييم ومراجعة لما تحقق، وتحديد لما يمكن تطويره وتحسينه خلال المرحلة القادمة، بما يسهم في رفع كفاءة الجمعية وتعظيم أثرها الاجتماعي والصحي.
+                    </p>
+                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:15px;">
+                        ونحن في مجلس الإدارة نؤكد التزامنا بمواصلة العمل على تطوير الأداء المؤسسي، وتعزيز الحوكمة والاستدامة المالية، وتنفيذ البرامج والمبادرات التي تحقق أثرًا ملموسًا ومستدامًا للمستفيدين والمجتمع.
+                    </p>
+                    <div style="font-size:0.95rem; font-weight:700; color:var(--secondary); text-align:left;">
+                        أخوكم<br>
+                        أ.د. منصور محمد النزهة<br>
+                        <span style="font-size:0.85rem; color:#FFF; font-weight:400;">رئيس مجلس الإدارة</span>
                     </div>
                 </div>
-                <div style="background:var(--bg-subtle); padding:30px; border-radius:var(--radius-lg); border-right:4px solid var(--primary);">
-                    <h4 style="color:var(--primary); font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-users-gear" style="color:var(--secondary); margin-left:8px;"></i> مجلس الإدارة (٩ أعضاء)</h4>
-                    <p style="font-size:0.95rem; line-height:1.8; color:var(--text-body);">
-                        يتشكل المجلس من ٩ أعضاء بخبرات قيادية وطبية وإدارية، يشرفون على لجان الحوكمة واللجنة التنفيذية ولجنة المساعدات الطبية، ويتابعون مع الإدارة التنفيذية برئاسة <strong>أ. بيان بن سعد المحمدي</strong> تنفيذ الخطط التشغيلية والموازنات المعتمدة.
-                    </p>
+
+                <!-- Left: Official Portrait Photo -->
+                <div style="text-align:center;">
+                    <div style="width:230px; height:230px; margin:0 auto 20px auto; border-radius:50%; border:4px solid var(--secondary); padding:4px; background:rgba(201, 169, 110, 0.2); box-shadow:0 12px 35px rgba(0,0,0,0.4); overflow:hidden;">
+                        <img src="assets/images/dr_mansour_alnozha.jpg" alt="أ.د. منصور محمد النزهة" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                    </div>
+                    <h4 style="color:#FFF; font-size:1.3rem; margin-bottom:4px;">أ.د. منصور محمد النزهة</h4>
+                    <div style="color:var(--secondary); font-weight:700; font-size:1rem;">رئيس مجلس الإدارة</div>
+                    <div style="color:rgba(255,255,255,0.7); font-size:0.88rem; margin-top:4px;">جمعية طبيبي الأهلية بالمدينة المنورة</div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Page 9: Executive Summary & 4 Core Pillars (المقدمة والملخص التنفيذي) -->
+        <div class="table-card" style="background:#FFF; border:2px solid var(--secondary); border-radius:var(--radius-xl); padding:35px; margin-bottom:40px; box-shadow:var(--shadow-md);">
+            <div style="background:var(--primary); color:#FFF; padding:12px 24px; border-radius:var(--radius-lg); margin-bottom:25px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <h3 style="color:#FFF; font-size:1.35rem; margin:0;"><i class="fas fa-file-lines" style="color:var(--secondary); margin-left:8px;"></i> المقدمة والملخص التنفيذي (صفحة ٩ بالتقرير)</h3>
+                <span style="background:var(--secondary); color:#FFF; padding:4px 14px; border-radius:var(--radius-pill); font-size:0.88rem; font-weight:700;">النص والبيانات الرسمية المعتمدة</span>
+            </div>
+
+            <!-- Narrative Paragraphs -->
+            <div style="background:var(--bg-subtle); padding:20px 25px; border-radius:var(--radius-lg); margin-bottom:25px; border-right:4px solid var(--primary); font-size:1.02rem; line-height:2.0; color:var(--text-main); text-align:justify;">
+                <p style="margin-bottom:12px;">
+                    واصلت جمعية طبيبي الأهلية خلال النصف الأول من عام <strong>٢٠٢٦م</strong> تنفيذ برامجها ومشروعاتها وخدماتها الموجهة للمستفيدين، وفق الخطة التشغيلية والميزانية المعتمدة، محققةً <strong>نمواً ملموساً في جميع المؤشرات الرئيسية</strong> مقارنةً بالفترة المماثلة من عام ٢٠٢٥م.
+                </p>
+                <p style="margin:0;">
+                    فقد ارتفع إجمالي الدخل بنسبة بلغت <strong>+١٩٢٪</strong>، وتوسّع نطاق الدعم الطبي المقدّم بأكثر من <strong>تسعة أضعاف (+٩٤٣٪)</strong>، إلى جانب مضاعفة عدد البرامج التشغيلية المفعّلة، وتوسيع الكادر الوظيفي، وتعزيز الشراكات الصحية، وتطوير المنظومة الرقمية والحوكمة للجمعية.
+                </p>
+            </div>
+
+            <!-- 4 Hexagon / Polygon Metric Cards Matching Page 9 -->
+            <div class="grid-4" style="gap:20px; margin-bottom:20px;">
+                <div style="background:#FAF8F5; border:2px solid #541228; border-radius:var(--radius-lg); padding:20px; text-align:center; box-shadow:var(--shadow-sm);">
+                    <div style="font-size:2.4rem; font-weight:900; color:#541228; line-height:1;">٣+١</div>
+                    <div style="font-size:1rem; font-weight:700; color:var(--text-main); margin-top:8px;">موظفون ومتعاون</div>
+                    <div style="font-size:0.82rem; color:var(--text-muted); margin-top:2px;">(٣ سعوديين + محاسب)</div>
+                </div>
+
+                <div style="background:#FAF8F5; border:2px solid #C9A96E; border-radius:var(--radius-lg); padding:20px; text-align:center; box-shadow:var(--shadow-sm);">
+                    <div style="font-size:2.4rem; font-weight:900; color:#8C6D37; line-height:1;">٩</div>
+                    <div style="font-size:1rem; font-weight:700; color:var(--text-main); margin-top:8px;">شراكات صحية مفعلة</div>
+                    <div style="font-size:0.82rem; color:var(--text-muted); margin-top:2px;">(مستشفيات ومراكز كبرى)</div>
+                </div>
+
+                <div style="background:#FAF8F5; border:2px solid #1B7A48; border-radius:var(--radius-lg); padding:20px; text-align:center; box-shadow:var(--shadow-sm);">
+                    <div style="font-size:2.4rem; font-weight:900; color:#1B7A48; line-height:1;">٢</div>
+                    <div style="font-size:1rem; font-weight:700; color:var(--text-main); margin-top:8px;">برامج تشغيلية مفعلة</div>
+                    <div style="font-size:0.82rem; color:var(--text-muted); margin-top:2px;">(جودة الحياة & عون)</div>
+                </div>
+
+                <div style="background:#FAF8F5; border:2px solid #541228; border-radius:var(--radius-lg); padding:20px; text-align:center; box-shadow:var(--shadow-sm);">
+                    <div style="font-size:2.4rem; font-weight:900; color:#541228; line-height:1;">+١٩٢٪</div>
+                    <div style="font-size:1rem; font-weight:700; color:var(--text-main); margin-top:8px;">نمو إجمالي الدخل</div>
+                    <div style="font-size:0.82rem; color:var(--success); font-weight:700; margin-top:2px;">(٥٨٢,١٦٧ ريال)</div>
+                </div>
+            </div>
+
+            <div style="text-align:center; font-size:0.95rem; color:var(--text-muted); font-style:italic; border-top:1px solid #EEE; padding-top:15px;">
+                «يستعرض هذا التقرير أبرز الإنجازات المالية والتشغيلية والإدارية خلال الفترة النصف سنوية للعام ٢٠٢٦م، مع مقارنة تفصيلية بالنصف الأول من عام ٢٠٢٥م.»
             </div>
         </div>
     </section>
