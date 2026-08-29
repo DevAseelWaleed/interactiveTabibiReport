@@ -1751,7 +1751,7 @@ html_content = """<!DOCTYPE html>
                     <tr class="total-row">
                         <td colspan="2">إجمالي المصروفات التشغيلية</td>
                         <td>٢٥٤,٢٧٤</td>
-                        <td>٦٣,٥٣٦</td>
+                        <td>١٠٣,٥٢٩</td>
                         <td>+٣٠٠٪</td>
                         <td>١٠٠٪</td>
                         <td>المصروفات الفعلية المدققة لعمليات H1 2026</td>
