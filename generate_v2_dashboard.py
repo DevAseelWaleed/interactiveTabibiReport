@@ -1494,6 +1494,123 @@ html_content = """<!DOCTYPE html>
             </table>
         </div>
 
+                <!-- Official Comparative Table (Pages 10 & 11 of Report) -->
+        <div class="table-card" style="margin-top:35px; border-top:4px solid var(--primary);">
+            <div class="table-toolbar">
+                <div>
+                    <h3 style="color:var(--primary); font-size:1.35rem;"><i class="fas fa-scale-balanced" style="color:var(--secondary); margin-left:8px;"></i> جدول مقارنة النصف الأول للعام المالي من (30/06/2025م) إلى (30/06/2026م)</h3>
+                    <p style="font-size:0.92rem; color:var(--text-muted);">المطابقة الرسمية المعتمدة بتقرير الجمعية (صفحة ١٠ و ١١) للأداء المالي والمساعدات والأصول والأرصدة</p>
+                </div>
+                <span class="tag-pill tag-success" style="font-size:1rem; padding:6px 16px;">مقارنة معتمدة (H1 2026 vs H1 2025)</span>
+            </div>
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>البند المالي والتشغيلي</th>
+                        <th>النصف الأول ٢٠٢٦م</th>
+                        <th>النصف الأول ٢٠٢٥م</th>
+                        <th>التغير بالقيمة (ريال)</th>
+                        <th>نسبة التغير ٪</th>
+                        <th>الملاحظات الفنية والبيان المعتمد بالتقرير</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#FAF8F5;"><td colspan="6"><strong>أولاً: بنود الدخل والإيرادات (صفحة ١٠ بالتقرير)</strong></td></tr>
+                    <tr>
+                        <td><strong>أموال الزكاة</strong></td>
+                        <td>٧٠,٠٠٠</td>
+                        <td>٨٠,٠٠٠</td>
+                        <td style="color:var(--danger); font-weight:700;">-١٠,٠٠٠</td>
+                        <td><span class="tag-pill tag-danger">-١٣٪</span></td>
+                        <td>مصروفة بالكامل لمصارف المرضى المحتاجين</td>
+                    </tr>
+                    <tr>
+                        <td><strong>العلاج (مساعدات مقيدة)</strong></td>
+                        <td>٧٥,٠٠٠</td>
+                        <td>٢٥,٠٠٠</td>
+                        <td style="color:var(--success); font-weight:700;">+٥٠,٠٠٠</td>
+                        <td><span class="tag-pill tag-success">+٢٠٠٪</span></td>
+                        <td>تضاعف الدعم المخصص للعمليات الجراحية المباشرة</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المتجر الإلكتروني</strong></td>
+                        <td>١٠,٤٦٩</td>
+                        <td>١٢٤</td>
+                        <td style="color:var(--success); font-weight:700;">+١٠,٣٤٥</td>
+                        <td><span class="tag-pill tag-success">+٨,٣٤٣٪</span></td>
+                        <td>تفعيل حلول الدفع الرقمي والتسويق الإلكتروني</td>
+                    </tr>
+                    <tr>
+                        <td><strong>منصة تبرع</strong></td>
+                        <td>١,٢٠٣</td>
+                        <td>١٣,٧٨٦</td>
+                        <td style="color:var(--warning); font-weight:700;">-١٢,٥٨٣</td>
+                        <td><span class="tag-pill tag-warning">-٩١٪</span></td>
+                        <td>متوقفة - تم استبدالها وضمها لمنصة إحسان الوطنية</td>
+                    </tr>
+                    <tr>
+                        <td><strong>تبرعات ودعم عام</strong></td>
+                        <td>٤٠٧,٤٩٥</td>
+                        <td>٦٢,٥٦٤</td>
+                        <td style="color:var(--success); font-weight:700;">+٣٤٤,٩٣١</td>
+                        <td><span class="tag-pill tag-success">+٥٥١٪</span></td>
+                        <td>دعم استثنائي من كبار المانحين والأوقاف الاستراتيجية</td>
+                    </tr>
+                    <tr>
+                        <td><strong>اشتراكات العضوية</strong></td>
+                        <td>١٨,٠٠٠</td>
+                        <td>١٨,٠٠٠</td>
+                        <td>٠</td>
+                        <td><span class="tag-pill tag-info">٠٪</span></td>
+                        <td>استقرار تحصيل اشتراكات أعضاء الجمعية العمومية</td>
+                    </tr>
+                    <tr class="total-row" style="background:#FFF9F0;">
+                        <td><strong>إجمالي الدخل والإيرادات</strong></td>
+                        <td><strong>٥٨٢,١٦٧</strong></td>
+                        <td><strong>١٩٩,٤٧٤</strong></td>
+                        <td><strong>+٣٨٢,٦٩٣</strong></td>
+                        <td><strong>+١٩٢٪</strong></td>
+                        <td><strong>نمو مالي قياسي يعكس ثقة المانحين بالجمعية</strong></td>
+                    </tr>
+
+                    <tr style="background:#FAF8F5;"><td colspan="6"><strong>ثانياً: المساعدات العلاجية والأصول والأرصدة (صفحة ١١ بالتقرير)</strong></td></tr>
+                    <tr>
+                        <td><strong>المساعدات العلاجية (مرفق)</strong></td>
+                        <td>٢٠٨,٦٠٥</td>
+                        <td>٢٠,٠٠٠</td>
+                        <td style="color:var(--success); font-weight:700;">+١٨٨,٦٠٥</td>
+                        <td><span class="tag-pill tag-success">+٩٤٣٪</span></td>
+                        <td>إحالة ٤ حالات للمستشفيات (٢٢,٢٧٥ ر.س) + ٣ حالات بالألماني (١٨٦,٣٣٠ ر.س)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>الأصول الثابتة والتجهيزات (مرفق)</strong></td>
+                        <td>١٥,٦٢٠</td>
+                        <td>٣٤,٧٧٦</td>
+                        <td style="color:var(--info); font-weight:700;">-١٩,١٥٦</td>
+                        <td><span class="tag-pill tag-info">-٥٥٪</span></td>
+                        <td>موازنة تقديرية ١٩,٤٥٠ ر.س (متبقي صرف ٣,٨٣٠ ر.س لتأثيث المقر)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>إجمالي الأرصدة المصرفية بالبنوك</strong></td>
+                        <td>١,٠٠١,٧٥٤</td>
+                        <td>٨٤٩,٤٢١</td>
+                        <td style="color:var(--success); font-weight:700;">+١٥٢,٣٣٣</td>
+                        <td><span class="tag-pill tag-success">+١٨٪</span></td>
+                        <td>الأهلي: ٩٣٠,٧٠٢ ر.س | الراجحي: ٧١,٠٥٢ ر.س (مقارنة بأرصدة افتتاحية ٢٠٢٥)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>صافي الأصول بالمركز المالي</strong></td>
+                        <td>٩٧٢,٧١٣</td>
+                        <td>٨٦٤,٠٤٥</td>
+                        <td style="color:var(--success); font-weight:700;">+١٠٨,٦٦٨</td>
+                        <td><span class="tag-pill tag-success">+١٣٪</span></td>
+                        <td>تعزيز الملاءة والاحتياطيات المالية للجمعية</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <!-- Budget & Liquidity Split -->
         <div class="grid-2">
             <!-- Budget Execution Trackers -->
