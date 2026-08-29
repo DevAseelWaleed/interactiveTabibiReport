@@ -1568,7 +1568,92 @@ html_content = """<!DOCTYPE html>
             </table>
         </div>
 
-                <!-- Official Comparative Table (Pages 10 & 11 of Report) -->
+                        <!-- Page 18: Payables & Transferred Liabilities (بيان الالتزامات الدائنة) -->
+        <div class="table-card" style="margin-top:35px; border-top:4px solid var(--primary); background:#FFF; border-radius:var(--radius-xl); padding:30px; box-shadow:var(--shadow-md);">
+            <div class="table-toolbar" style="margin-bottom:20px;">
+                <div>
+                    <h3 style="color:var(--primary); font-size:1.35rem;"><i class="fas fa-file-invoice-dollar" style="color:var(--secondary); margin-left:8px;"></i> بيان الالتزامات الدائنة وتحليل الالتزامات المرحلة وسدادها (صفحة ١٨ بالتقرير)</h3>
+                    <p style="font-size:0.92rem; color:var(--text-muted);">حركة تسوية الالتزامات المالية المرحلة من عام ٢٠٢٥م وسداد ٧٢.٥٪ منها بنجاح خلال النصف الأول لعام ٢٠٢٦م</p>
+                </div>
+                <span class="tag-pill tag-success" style="font-size:1rem; padding:6px 16px;">تم سداد ١٣,٢١١ ر.س (٧٢.٥٪)</span>
+            </div>
+
+            <!-- Table 1: Movement of Liabilities -->
+            <table class="custom-table" style="margin-bottom:25px;">
+                <thead>
+                    <tr>
+                        <th style="width:25%;">البند</th>
+                        <th style="width:15%; text-align:center;">الرصيد الافتتاحي (٠١/٠١/٢٠٢٦م)</th>
+                        <th style="width:15%; text-align:center;">مدين (سداد)</th>
+                        <th style="width:12%; text-align:center;">دائن</th>
+                        <th style="width:15%; text-align:center;">الرصيد في (٣٠/٠٦/٢٠٢٦م)</th>
+                        <th style="width:18%;">ملاحظات المعتمدة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>حركة الالتزامات (الدائنة)</strong></td>
+                        <td style="text-align:center; font-weight:700;">١٨,٢١١</td>
+                        <td style="text-align:center; font-weight:700; color:var(--success);">١٣,٢١١</td>
+                        <td style="text-align:center;">٠</td>
+                        <td style="text-align:center; font-size:1.15rem; font-weight:900; color:var(--primary);">٥,٠٠٠</td>
+                        <td>مستحق مؤسسة مؤشرات النجاح الإدارية عن أعمال الحوكمة والتطوير المؤسسي</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Table 2 & Chart Grid -->
+            <div class="grid-2" style="align-items:start; gap:25px;">
+                <!-- Right: Breakdown Table -->
+                <div>
+                    <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:12px;"><i class="fas fa-list-check" style="color:var(--secondary); margin-left:6px;"></i> تحليل الالتزامات الدائنة المرحلة من عام ٢٠٢٥م (١٨,٢١١ ريال):</h4>
+                    <table class="custom-table" style="margin:0;">
+                        <thead>
+                            <tr>
+                                <th style="width:70%;">البيان والتفصيل</th>
+                                <th style="width:30%; text-align:center;">المبلغ (ريال)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>مستحق إيجار لشهر واحد المقر السابق للجمعية (ديسمبر ٢٠٢٥م)</td>
+                                <td style="text-align:center; font-weight:700; color:var(--success);">٥,٨٣٣</td>
+                            </tr>
+                            <tr>
+                                <td>مستحق مؤسسة مؤشرات النجاح الإدارية عن أعمال الحوكمة والتطوير المؤسسي</td>
+                                <td style="text-align:center; font-weight:700; color:var(--primary);">٥,٠٠٠</td>
+                            </tr>
+                            <tr>
+                                <td>مستحق مكتب المحاسب القانوني (رائد الأحمدي) - مراجعة وإعداد القوائم المالية ٢٠٢٥م</td>
+                                <td style="text-align:center; font-weight:700; color:var(--success);">٤,٦٠٠</td>
+                            </tr>
+                            <tr>
+                                <td>مستحق المحاسب المتعاون (محمد الحسن) - أعمال إقفال العام المالي ٢٠٢٥م</td>
+                                <td style="text-align:center; font-weight:700; color:var(--success);">٢,٠٠٠</td>
+                            </tr>
+                            <tr>
+                                <td>مخصص نهاية خدمة الموظف (وائل محمد ثلاب هاشم علي)</td>
+                                <td style="text-align:center; font-weight:700; color:var(--success);">٧٧٨</td>
+                            </tr>
+                            <tr class="total-row" style="background:#FFF9F0;">
+                                <td><strong>الإجمالي</strong></td>
+                                <td style="text-align:center; font-size:1.15rem; font-weight:900; color:#541228;">١٨,٢١١</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Left: Chart -->
+                <div style="background:var(--bg-subtle); padding:20px; border-radius:var(--radius-lg); border:1px solid rgba(0,0,0,0.05); text-align:center;">
+                    <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:12px;"><i class="fas fa-chart-pie" style="color:var(--secondary); margin-left:6px;"></i> نسبة سداد الالتزامات المرحلة (٪)</h4>
+                    <div style="height:250px; position:relative;">
+                        <canvas id="page18LiabilitiesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Official Comparative Table (Pages 10 & 11 of Report) -->
                         <!-- Page 13: Income Sources & Diversity (مصادر الدخل خلال النصف الأول 2026م) -->
         <div class="table-card" style="background:#FFF; border:2px solid var(--primary); border-radius:var(--radius-xl); padding:30px; margin-top:35px; box-shadow:var(--shadow-md);">
             <div style="background:var(--primary); color:#FFF; padding:12px 24px; border-radius:var(--radius-lg); margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
