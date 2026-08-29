@@ -2630,6 +2630,76 @@ html_content = """<!DOCTYPE html>
             </table>
         </div>
 
+                <!-- Page 22: Fixed Assets 2025 vs 2026 Comparison Table -->
+        <div class="table-card" style="margin-top:35px; border-top:4px solid var(--primary);">
+            <div class="table-toolbar">
+                <div>
+                    <h3 style="color:var(--primary); font-size:1.35rem;"><i class="fas fa-couch" style="color:var(--secondary); margin-left:8px;"></i> الأصول الثابتة: مقارنة النصف الأول لعام ٢٠٢٦م بالنصف الأول لعام ٢٠٢٥م (عام التأسيس)</h3>
+                    <p style="font-size:0.92rem; color:var(--text-muted);">البيان التفصيلي المعتمد بتقرير الجمعية (صفحة ٢٢) لمصروفات شراء الأصول وتجهيزات المقر في فترة التأسيس</p>
+                </div>
+                <span class="tag-pill tag-info" style="font-size:1rem; padding:6px 16px;">إجمالي أصول ٢٠٢٥م: ٣٤,٧٧٥.٥٠ ر.س</span>
+            </div>
+
+            <!-- Comparison Summary Hero -->
+            <div class="grid-2" style="margin-bottom:25px; gap:20px;">
+                <div style="background:#FAF8F5; border:2px solid #541228; border-radius:var(--radius-lg); padding:18px 24px; text-align:center;">
+                    <div style="font-size:2rem; font-weight:900; color:#541228;">١٥,٦٢٠.٨٠ <small style="font-size:1rem;">ر.س</small></div>
+                    <div style="font-weight:700; color:var(--text-main); margin-top:4px;">مصروفات الأصول الثابتة لعام ٢٠٢٦م</div>
+                    <div style="font-size:0.88rem; color:var(--text-muted); margin-top:2px;">(تأثيث وتجهيز المقر الجديد بوفر سنوي ٢٥ ألف ريال)</div>
+                </div>
+                <div style="background:#FAF8F5; border:2px solid #C9A96E; border-radius:var(--radius-lg); padding:18px 24px; text-align:center;">
+                    <div style="font-size:2rem; font-weight:900; color:#8C6D37;">٣٤,٧٧٥.٥٠ <small style="font-size:1rem;">ر.س</small></div>
+                    <div style="font-weight:700; color:var(--text-main); margin-top:4px;">مصروفات الأصول الثابتة لعام ٢٠٢٥م (عام التأسيس)</div>
+                    <div style="font-size:0.88rem; color:var(--success); font-weight:700; margin-top:2px;">وفر بالإنفاق الرأسمالي بنسبة -٥٥٪ (-١٩,١٥٦ ر.س)</div>
+                </div>
+            </div>
+
+            <!-- 2025 Detailed Assets Table -->
+            <h4 style="color:var(--primary); font-size:1.15rem; margin-bottom:12px;"><i class="fas fa-list-check" style="color:var(--secondary); margin-left:6px;"></i> تفصيل مشتريات وتجهيزات الأصول الثابتة لعام ٢٠٢٥م (٣٤,٧٧٥.٥٠ ريال):</h4>
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width:5%;">م</th>
+                        <th style="width:35%;">اسم الأصل والتجهيز</th>
+                        <th style="width:10%; text-align:center;">العدد</th>
+                        <th style="width:15%; text-align:center;">تاريخ الشراء</th>
+                        <th style="width:15%; text-align:center;">المبلغ (ريال)</th>
+                        <th style="width:20%;">المجموعة والتصنيف</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background:#FAF8F5;"><td colspan="6"><strong>١. الأجهزة المكتبية والتقنية (إجمالي المجموعة: ١٠,٢٩٥.٠٠ ريال)</strong></td></tr>
+                    <tr><td>١</td><td>حاسب آلي مكتبي HP</td><td style="text-align:center;">٢</td><td style="text-align:center;">٢٠٢٥/٠٦/١٨م</td><td style="text-align:center; font-weight:700;">٤,٧٩٨.٠٠</td><td>أجهزة حاسب مكتبية رئيسية</td></tr>
+                    <tr><td>٢</td><td>حاسب آلي مكتبي HP</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/١٨م</td><td style="text-align:center; font-weight:700;">٣,٣٩٩.٠٠</td><td>حاسب مكتبي إداري</td></tr>
+                    <tr><td>٣</td><td>لابتوب محمول أيسر (Acer)</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/١٨م</td><td style="text-align:center; font-weight:700;">٩٩٩.٠٠</td><td>جهاز محمول للأعمال الخارجية</td></tr>
+                    <tr><td>٤</td><td>طابعة مكتبية HP</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/١٨م</td><td style="text-align:center; font-weight:700;">١,٠٩٩.٠٠</td><td>طباعة المستندات والتقارير</td></tr>
+
+                    <tr style="background:#FAF8F5;"><td colspan="6"><strong>٢. الأثاث المكتبي والتأثيث (إجمالي المجموعة شاملاً الضريبة: ١٧,٦٠٠.٠٠ ريال)</strong></td></tr>
+                    <tr><td>٥</td><td>طاولة اجتماعات خشب صيني ٣٢٠ سم</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">١,٥٢١.٧٣</td><td>قاعة الاجتماعات ومجلس الإدارة</td></tr>
+                    <tr><td>٦</td><td>كرسي دوار جلد ظهر طويل صيني</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">٤٣٤.٧٨</td><td>كرسي الإدارة التنفيذية</td></tr>
+                    <tr><td>٧</td><td>كرسي ثابت جلد صيني</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">٨٦٩.٥٨</td><td>كرسي استقبال ومراجعين</td></tr>
+                    <tr><td>٨</td><td>كراسي دوارة شبك ظهر قصير صيني</td><td style="text-align:center;">٧</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">٩١٣.٠٨</td><td>كراسي مكاتب وقاعات</td></tr>
+                    <tr><td>٩</td><td>مكتب ١٢٠ سم + دولاب مستندات + طاولة ضيافة</td><td style="text-align:center;">٣</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">٥,٠٤٣.٤٧</td><td>طواقم مكاتب وضيافة إدارية</td></tr>
+                    <tr><td>١٠</td><td>أطقم كنب وطني جلد بني (مفرد + ثنائي + ثلاثي)</td><td style="text-align:center;">٤</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">٣,٩١٣.٠٢</td><td>أطقم استقبال الزوار والضيوف</td></tr>
+                    <tr><td>١١</td><td>فاصل (بارتشن) ثلاثي خشب صيني</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">٢,٦٠٨.٦٩</td><td>تقسيم المكاتب والصالات</td></tr>
+                    <tr><td>١٢</td><td>القيمة الضريبية المضافة للأثاث المكتبي</td><td style="text-align:center;">—</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٥م</td><td style="text-align:center; font-weight:700;">٢,٢٩٥.٦٥</td><td>ضريبة القيمة المضافة ١٥٪</td></tr>
+
+                    <tr style="background:#FAF8F5;"><td colspan="6"><strong>٣. الأجهزة الكهربائية والتكييف (إجمالي المجموعة: ٦,٦٣٠.٥٠ ريال)</strong></td></tr>
+                    <tr><td>١٣</td><td>مكيفات أوجين جولد ٢٤ وحدة بارد + كراسي تركيب</td><td style="text-align:center;">٣</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٢م</td><td style="text-align:center; font-weight:700;">٥,٥٠٤.٢٥</td><td>تكييف صالات ومكاتب المقر</td></tr>
+                    <tr><td>١٤</td><td>ثلاجة بيورن ٩٠ لتر صغيرة + الضريبة (٨٦٤.٨٥ ر.س)</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٦/٠٢م</td><td style="text-align:center; font-weight:700;">١,١٢٦.٢٥</td><td>خدمات الضيافة والمقر</td></tr>
+
+                    <tr style="background:#FAF8F5;"><td colspan="6"><strong>٤. أجهزة الاتصال والتواصل (إجمالي المجموعة: ٢٥٠.٠٠ ريال)</strong></td></tr>
+                    <tr><td>١٥</td><td>جهاز جوال للجمعية + ضريبة القيمة المضافة (٣٢.٦١ ر.س)</td><td style="text-align:center;">١</td><td style="text-align:center;">٢٠٢٥/٠٥/٢٦م</td><td style="text-align:center; font-weight:700;">٢٥٠.٠٠</td><td>هاتف التواصل الرسمي للجمعية</td></tr>
+
+                    <tr class="total-row" style="background:#FFF9F0;">
+                        <td colspan="4"><strong>إجمالي مصروفات الأصول الثابتة لعام ٢٠٢٥م (عام التأسيس)</strong></td>
+                        <td style="text-align:center; font-size:1.15rem; font-weight:900; color:#541228;">٣٤,٧٧٥.٥٠</td>
+                        <td><strong>مطابقة رسمية لصفحة ٢٢ بتقرير الجمعية</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <!-- Appendix 2: Fixed Assets Table -->
         <div class="table-card" style="margin-bottom:0;">
             <h3 style="color:var(--primary); font-size:1.25rem; margin-bottom:15px;"><i class="fas fa-desktop" style="color:var(--secondary); margin-left:8px;"></i> الملحق (٢): بيان الأصول والتجهيزات المشتراة لعام ٢٠٢٦م (١٥,٦٢٠.٨٠ ريال)</h3>
