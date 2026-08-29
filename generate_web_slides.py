@@ -803,22 +803,56 @@ slides_html = """<!DOCTYPE html>
             }
         }
 
-        // Slide Chart Initialization
+        // Slide Chart Initialization with Direct Data Labels
         window.onload = function() {
             showSlide(1);
             
+            const barValueLabelsPlugin = {
+                id: 'barValueLabels',
+                afterDatasetsDraw(chart, args, options) {
+                    const { ctx } = chart;
+                    ctx.save();
+                    ctx.font = 'bold 10px Cairo, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+
+                    chart.data.datasets.forEach((dataset, datasetIndex) => {
+                        const meta = chart.getDatasetMeta(datasetIndex);
+                        if (!meta.hidden) {
+                            meta.data.forEach((element, index) => {
+                                const val = dataset.data[index];
+                                if (val > 0) {
+                                    const formattedVal = Number(val).toLocaleString('ar-SA');
+                                    ctx.fillStyle = datasetIndex === 0 ? '#380B1B' : '#8C6D37';
+                                    ctx.fillText(formattedVal, element.x, element.y - 4);
+                                }
+                            });
+                        }
+                    });
+                    ctx.restore();
+                }
+            };
+
             const ctxRev = document.getElementById('slideRevChart');
             if (ctxRev) {
                 new Chart(ctxRev, {
                     type: 'bar',
+                    plugins: [barValueLabelsPlugin],
                     data: {
                         labels: ['الزكاة', 'علاج مقيد', 'المتجر', 'تبرع', 'دعم عام', 'العضوية'],
                         datasets: [
-                            { label: '٢٠٢٦م', data: [70000, 75000, 10469, 1203, 407495, 18000], backgroundColor: '#6B1D3A' },
-                            { label: '٢٠٢٥م', data: [80000, 25000, 124, 13786, 62564, 18000], backgroundColor: '#C9A96E' }
+                            { label: '٢٠٢٦م', data: [70000, 75000, 10469, 1203, 407495, 18000], backgroundColor: '#6B1D3A', borderRadius: 4 },
+                            { label: '٢٠٢٥م', data: [80000, 25000, 124, 13786, 62564, 18000], backgroundColor: '#C9A96E', borderRadius: 4 }
                         ]
                     },
-                    options: { responsive: true, maintainAspectRatio: false }
+                    options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false,
+                        layout: { padding: { top: 22, bottom: 5 } },
+                        scales: {
+                            y: { beginAtZero: true, suggestedMax: 460000 }
+                        }
+                    }
                 });
             }
         };
@@ -830,7 +864,4 @@ slides_html = """<!DOCTYPE html>
 with open(output_html, "w", encoding="utf-8") as f:
     f.write(slides_html)
 
-# Copy to v1 folder as well
 shutil.copy2(output_html, os.path.join(v1_dir, "presentation.html"))
-
-print(f"Generated interactive web presentation slide deck successfully: {output_html}")

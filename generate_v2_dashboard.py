@@ -2358,7 +2358,7 @@ html_content = """<!DOCTYPE html>
         </div>
     </footer>
 
-    <!-- Interactive Scripts & Chart.js -->
+    <!-- Interactive Scripts & Chart.js with Direct On-Chart Labels -->
     <script>
         // Live Filter Function for tables
         function filterTable(inputId, tableId) {
@@ -2378,6 +2378,74 @@ html_content = """<!DOCTYPE html>
             }
         }
 
+        // Custom Inline Chart.js Plugin for Bar Chart Value Labels
+        const barValueLabelsPlugin = {
+            id: 'barValueLabels',
+            afterDatasetsDraw(chart, args, options) {
+                const { ctx, data } = chart;
+                ctx.save();
+                ctx.font = 'bold 10px Cairo, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                chart.data.datasets.forEach((dataset, datasetIndex) => {
+                    const meta = chart.getDatasetMeta(datasetIndex);
+                    if (!meta.hidden) {
+                        meta.data.forEach((element, index) => {
+                            const val = dataset.data[index];
+                            if (val > 0) {
+                                const formattedVal = Number(val).toLocaleString('ar-SA');
+                                ctx.fillStyle = datasetIndex === 0 ? '#380B1B' : '#8C6D37';
+                                ctx.fillText(formattedVal, element.x, element.y - 4);
+                            }
+                        });
+                    }
+                });
+                ctx.restore();
+            }
+        };
+
+        // Custom Inline Chart.js Plugin for Doughnut Chart Percentages
+        const doughnutPercentagePlugin = {
+            id: 'doughnutPercentages',
+            afterDraw(chart, args, options) {
+                const { ctx, chartArea: { width, height } } = chart;
+                const meta = chart.getDatasetMeta(0);
+                if (!meta || !meta.data.length) return;
+
+                const dataset = chart.data.datasets[0];
+                const total = dataset.data.reduce((acc, cur) => acc + cur, 0);
+
+                ctx.save();
+                ctx.font = 'bold 12px Cairo, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                meta.data.forEach((element, index) => {
+                    const value = dataset.data[index];
+                    const percentage = ((value / total) * 100).toFixed(1);
+                    const angle = element.startAngle + (element.endAngle - element.startAngle) / 2;
+                    
+                    // Position at center of arc
+                    const radius = element.innerRadius + (element.outerRadius - element.innerRadius) * 0.55;
+                    const x = element.x + Math.cos(angle) * radius;
+                    const y = element.y + Math.sin(angle) * radius;
+
+                    // Text styling with drop shadow for maximum clarity
+                    ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+                    ctx.shadowBlur = 4;
+                    ctx.shadowOffsetX = 1;
+                    ctx.shadowOffsetY = 1;
+                    ctx.fillStyle = '#FFFFFF';
+
+                    if (Number(percentage) >= 4) {
+                        ctx.fillText(`٪${Number(percentage).toLocaleString('ar-SA')}`, x, y);
+                    }
+                });
+                ctx.restore();
+            }
+        };
+
         // Initialize Charts
         document.addEventListener('DOMContentLoaded', function() {
             Chart.defaults.font.family = "'Cairo', sans-serif";
@@ -2388,6 +2456,7 @@ html_content = """<!DOCTYPE html>
             if (ctxRev) {
                 new Chart(ctxRev, {
                     type: 'bar',
+                    plugins: [barValueLabelsPlugin],
                     data: {
                         labels: ['الزكاة', 'علاج مقيد', 'المتجر', 'منصة تبرع', 'دعم عام', 'العضوية'],
                         datasets: [
@@ -2408,12 +2477,19 @@ html_content = """<!DOCTYPE html>
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
+                        layout: {
+                            padding: { top: 25, bottom: 5 }
+                        },
                         plugins: {
                             legend: { position: 'top', rtl: true, labels: { font: { size: 12, weight: '700' } } },
                             tooltip: { rtl: true }
                         },
                         scales: {
-                            y: { beginAtZero: true, ticks: { callback: v => v.toLocaleString() + ' ر.س' } }
+                            y: { 
+                                beginAtZero: true, 
+                                suggestedMax: 460000,
+                                ticks: { callback: v => v.toLocaleString() + ' ر.س' } 
+                            }
                         }
                     }
                 });
@@ -2424,6 +2500,7 @@ html_content = """<!DOCTYPE html>
             if (ctxExp) {
                 new Chart(ctxExp, {
                     type: 'doughnut',
+                    plugins: [doughnutPercentagePlugin],
                     data: {
                         labels: ['المساعدات الطبية (البرامج)', 'الرواتب والأجور', 'الإيجار والمقر', 'التأمينات والمتعاونين', 'الأصول الثابتة', 'مصروفات تشغيلية أخرى'],
                         datasets: [{
@@ -2443,11 +2520,24 @@ html_content = """<!DOCTYPE html>
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
+                        layout: {
+                            padding: 10
+                        },
                         plugins: {
                             legend: { position: 'bottom', rtl: true, labels: { boxWidth: 12, font: { size: 11 } } },
-                            tooltip: { rtl: true }
+                            tooltip: { 
+                                rtl: true,
+                                callbacks: {
+                                    label: function(context) {
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const val = context.raw;
+                                        const pct = ((val / total) * 100).toFixed(1);
+                                        return `${context.label}: ${val.toLocaleString()} ريال (${pct}%)`;
+                                    }
+                                }
+                            }
                         },
-                        cutout: '62%'
+                        cutout: '58%'
                     }
                 });
             }
