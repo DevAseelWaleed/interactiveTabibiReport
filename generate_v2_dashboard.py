@@ -1339,12 +1339,12 @@ html_content = """<!DOCTYPE html>
                         <td>لم تسجل حالات زراعة أعضاء ممولة</td>
                         <td><span class="badge-pill bg-red">لم يبدأ</span></td>
                     </tr>
-                    <tr>
+                    <tr style="background:rgba(46, 125, 50, 0.06);">
                         <td><strong>٧. عون</strong></td>
-                        <td>إعانات ومخصصات شهرية للأمراض المزمنة</td>
-                        <td>المرضى المزمنون</td>
-                        <td>لم تُصرف إعانات شهرية دورية</td>
-                        <td><span class="badge-pill bg-red">لم يبدأ</span></td>
+                        <td>توفير الأدوية والرعاية المستدامة لمرضى الأمراض المزمنة</td>
+                        <td>المرضى المزمنون والأشد حاجة</td>
+                        <td><strong>تفعيل المبادرة ورفع مشروع رعاية مرضى الأمراض المزمنة وتوفير الدواء (الشاوي والمانحين)</strong></td>
+                        <td><span class="badge-pill bg-green">مفعل ونشط</span></td>
                     </tr>
                     <tr>
                         <td><strong>٨. ضيوفنا</strong></td>
