@@ -1959,6 +1959,14 @@
         </div>
     </section>
 
+            <!-- Budget Execution Bar Chart -->
+        <div class="exec-card" style="margin-top:25px; margin-bottom:25px; padding:25px;">
+            <h4 style="color:var(--primary); font-size:1.15rem; margin-bottom:15px; text-align:center;"><i class="fas fa-chart-column" style="color:var(--secondary); margin-left:8px;"></i> نسبة تنفيذ بنود الموازنة التقديرية لعام ٢٠٢٦م (المحقق الفعلي مقابل المستهدف)</h4>
+            <div style="height:300px; position:relative;">
+                <canvas id="budgetExecutionChart"></canvas>
+            </div>
+        </div>
+
     <!-- Section 5: Clinical Impact & Patient Health Journey -->
     <section class="container" id="clinical" style="background:#FFF; border-radius:var(--radius-xl); padding-top:70px;">
         <div class="section-intro">
@@ -2637,6 +2645,22 @@
             </table>
         </div>
     </section>
+
+            <!-- Appendices Charts: Top Donors & Fixed Assets -->
+        <div class="grid-2" style="margin-top:25px; margin-bottom:30px; gap:25px;">
+            <div class="exec-card" style="padding:20px;">
+                <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:15px; text-align:center;"><i class="fas fa-handshake-angle" style="color:var(--secondary); margin-left:6px;"></i> مساهمات كبار المانحين والأوقاف الاستراتيجية (ريال)</h4>
+                <div style="height:300px; position:relative;">
+                    <canvas id="topDonorsChart"></canvas>
+                </div>
+            </div>
+            <div class="exec-card" style="padding:20px;">
+                <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:15px; text-align:center;"><i class="fas fa-desktop" style="color:var(--secondary); margin-left:6px;"></i> توزيع الإنفاق على الأصول الثابتة والتجهيزات (١٥,٦٢١ ريال)</h4>
+                <div style="height:300px; position:relative;">
+                    <canvas id="fixedAssetsChart"></canvas>
+                </div>
+            </div>
+        </div>
 
     <!-- Footer & Official Channels -->
     <footer class="footer-v2">
