@@ -488,8 +488,8 @@ slides_html = """<!DOCTYPE html>
                         </tr>
                         <tr>
                             <td><strong>عدد المستفيدين المخدومين</strong></td>
-                            <td>٣٦,٦٠٦ مستفيد</td>
-                            <td>١٨,٣٠٣ مستفيد</td>
+                            <td>٢٠٠ مستفيد</td>
+                            <td>١٠٠ مستفيد</td>
                             <td>٧ مستفيدين</td>
                             <td>٠.٠٣٨٪</td>
                             <td><span class="badge-pill bg-red">متعثر تماماً</span></td>
@@ -654,7 +654,7 @@ slides_html = """<!DOCTYPE html>
             <div class="grid-2" style="gap:16px;">
                 <div class="card-box" style="border-top:4px solid var(--danger);">
                     <div style="font-weight:800; color:var(--danger); font-size:1.05rem; margin-bottom:6px;">١. فجوة أعداد المستفيدين (-٩٩.٩٦٪)</div>
-                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">خدمة ٧ مرضى فقط مقابل مستهدف ٣٦,٦٠٦ مستفيد لحصر الدعم بالجراحات باهظة التكلفة وإيقاف العيادات الوقائية.</div>
+                    <div style="font-size:0.85rem; line-height:1.7; color:var(--text-main);">خدمة ٧ مرضى فقط مقابل مستهدف ٢٠٠ مستفيد لحصر الدعم بالجراحات باهظة التكلفة وإيقاف العيادات الوقائية.</div>
                 </div>
                 <div class="card-box" style="border-top:4px solid var(--warning);">
                     <div style="font-weight:800; color:var(--warning); font-size:1.05rem; margin-bottom:6px;">٢. تشدد لائحة المساعدات (رفض ٦٦.٧٪)</div>

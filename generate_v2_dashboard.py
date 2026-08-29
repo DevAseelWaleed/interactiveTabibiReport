@@ -1376,7 +1376,7 @@ html_content = """<!DOCTYPE html>
             <div class="exec-card" style="border-top:4px solid var(--danger);">
                 <h3 style="color:var(--danger); font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-triangle-exclamation" style="margin-left:8px;"></i> الفجوة الاستراتيجية ١: انحسار نطاق المستفيدين</h3>
                 <p style="font-size:0.95rem; line-height:1.8; color:var(--text-main); text-align:justify;">
-                    الخطة استهدفت خدمة <strong>٣٦,٦٠٦ مستفيد</strong>، بينما اقتصر التنفيذ الفعلي على <strong>٧ مرضى فقط</strong>. يرجع ذلك لحصر الصرف في الجراحات المعقدة مرتفعة التكلفة (متوسط ٢٩.٨ ألف ريال للحالة) وإيقاف العيادات والقوافل الوقائية والاستشارات التي تخدم الآلاف بتكلفة منخفضة.
+                    الخطة استهدفت خدمة <strong>٢٠٠ مستفيد سنوياً (١٠٠ مستفيد للنصف الأول)</strong>، بينما اقتصر التنفيذ الفعلي على <strong>٧ مرضى فقط</strong> (نسبة إنجاز ٧٪ من مستهدف H1). يرجع ذلك لتركيز الموارد في جراحات تخصصية معقدة ومكلفة (متوسط ٢٩.٨ ألف ريال للحالة) مع تأخر إطلاق القوافل الطبية والاستشارات.
                 </p>
             </div>
 

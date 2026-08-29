@@ -246,7 +246,7 @@ def create_presentation():
     s4 = prs.slides.add_slide(blank_layout)
     add_slide_header(s4, "مصفوفة مطابقة الخطة الاستراتيجية بالمنجز الفعلي", "مقارنة تفصيلية لمستهدفات عام ٢٠٢٦م المعتمدة وما تحقق على أرض الواقع")
 
-    table_shape = s4.shapes.add_table(11, 6, PInches(0.8), PInches(1.5), PInches(11.733), PInches(5.4))
+    table_shape = s4.shapes.add_table(12, 6, PInches(0.8), PInches(1.5), PInches(11.733), PInches(5.4))
     table = table_shape.table
     table_headers = ["المؤشر الاستراتيجي المعتمد", "المستهدف السنوي", "مستهدف H1", "المنجز الفعلي H1", "نسبة الإنجاز H1", "الحالة المعتمدة"]
     
@@ -262,8 +262,9 @@ def create_presentation():
         p.font.color.rgb = C_WHITE
         p.alignment = PP_ALIGN.CENTER
 
-        matrix_data = [
+    matrix_data = [
         ("الإيرادات المالية الكلية (المعدلة)", "١,٥٠٠,٠٠٠ ر.س", "٧٥٠,٠٠٠ ر.س", "٥٨٢,١٦٧.٥٢ ر.س", "٧٧.٦٢٪", "متقدم ومتميز"),
+        ("عدد المستفيدين المخدومين", "٢٠٠ مستفيد", "١٠٠ مستفيد", "٧ مستفيدين", "٧.٠٠٪", "متأخر"),
         ("الاستشارات الطبية والدوائية", "١,٢٠٠ استشارة", "٦٠٠ استشارة", "٠ استشارة", "٠.٠٠٪", "لم يبدأ"),
         ("الدراسات واستطلاعات الرأي", "٦ دراسات", "٣ دراسات", "٠ دراسة", "٠.٠٠٪", "لم يبدأ"),
         ("ساعات وقيمة العمل التطوعي", "٣,٠٠٠ س (٢٠٢ ألف)", "١,٥٠٠ س (١٠١ ألف)", "٤ فرص تطوعية", "غير مدققة", "متعثر"),
@@ -290,7 +291,7 @@ def create_presentation():
                 p.font.bold = True
             elif j == 5:
                 p.font.bold = True
-                p.font.color.rgb = C_SUCCESS if "مكتمل" in val else (C_WARNING if "متأخر" in val else C_DANGER)
+                p.font.color.rgb = C_SUCCESS if "مكتمل" in val or "متقدم" in val else (C_WARNING if "متأخر" in val else C_DANGER)
 
     # =========================================================================
     # SLIDE 5: Financial Performance & Revenue Comparison
