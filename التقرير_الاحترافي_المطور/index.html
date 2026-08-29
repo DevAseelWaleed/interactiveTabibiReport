@@ -1488,7 +1488,81 @@
         </div>
 
                 <!-- Official Comparative Table (Pages 10 & 11 of Report) -->
-                <!-- Page 12: Income & Expense Growth Overview (نمو الإيرادات والمصروفات) -->
+                        <!-- Page 13: Income Sources & Diversity (مصادر الدخل خلال النصف الأول 2026م) -->
+        <div class="table-card" style="background:#FFF; border:2px solid var(--primary); border-radius:var(--radius-xl); padding:30px; margin-top:35px; box-shadow:var(--shadow-md);">
+            <div style="background:var(--primary); color:#FFF; padding:12px 24px; border-radius:var(--radius-lg); margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <h3 style="color:#FFF; font-size:1.35rem; margin:0;"><i class="fas fa-coins" style="color:var(--secondary); margin-left:8px;"></i> مصادر الدخل خلال النصف الأول ٢٠٢٦م</h3>
+                <span style="background:var(--secondary); color:#FFF; padding:4px 14px; border-radius:var(--radius-pill); font-size:0.88rem; font-weight:700;">المطابقة الرسمية لصفحة ١٣ بالتقرير</span>
+            </div>
+            
+            <p style="font-size:1.05rem; font-weight:700; color:var(--text-main); margin-bottom:20px; text-align:center;">
+                تنوع مصادر الدعم يعكس نضج الاستدامة المالية للجمعية
+            </p>
+
+            <div class="grid-2" style="align-items:center; gap:30px;">
+                <!-- Left: Pie Chart with on-slice percentages -->
+                <div style="background:var(--bg-subtle); padding:20px; border-radius:var(--radius-lg); border:1px solid rgba(0,0,0,0.05); text-align:center;">
+                    <div style="height:320px; position:relative;">
+                        <canvas id="page13IncomePieChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Right: Exact 3-column Table -->
+                <div>
+                    <table class="custom-table" style="margin:0; box-shadow:var(--shadow-sm);">
+                        <thead>
+                            <tr style="background:#541228; color:#FFF;">
+                                <th style="color:#FFF; width:45%;">بند الدخل</th>
+                                <th style="color:#FFF; text-align:center; width:28%;">٢٠٢٦م (ريال)</th>
+                                <th style="color:#FFF; text-align:center; width:27%;">٢٠٢٥م (ريال)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span style="display:inline-block; width:10px; height:10px; background:#A61C48; border-radius:2px; margin-left:6px;"></span><strong>تبرعات ودعم عام</strong></td>
+                                <td style="text-align:center; font-weight:700; color:var(--primary);">٤٠٧,٤٩٥</td>
+                                <td style="text-align:center; color:var(--text-muted);">٦٢,٥٦٤</td>
+                            </tr>
+                            <tr>
+                                <td><span style="display:inline-block; width:10px; height:10px; background:#380B1B; border-radius:2px; margin-left:6px;"></span><strong>العلاج</strong></td>
+                                <td style="text-align:center; font-weight:700; color:var(--primary);">٧٥,٠٠٠</td>
+                                <td style="text-align:center; color:var(--text-muted);">٢٥,٠٠٠</td>
+                            </tr>
+                            <tr>
+                                <td><span style="display:inline-block; width:10px; height:10px; background:#5E132D; border-radius:2px; margin-left:6px;"></span><strong>الزكاة</strong></td>
+                                <td style="text-align:center; font-weight:700; color:var(--primary);">٧٠,٠٠٠</td>
+                                <td style="text-align:center; color:var(--text-muted);">٨٠,٠٠٠</td>
+                            </tr>
+                            <tr>
+                                <td><span style="display:inline-block; width:10px; height:10px; background:#D9829B; border-radius:2px; margin-left:6px;"></span><strong>العضوية</strong></td>
+                                <td style="text-align:center; font-weight:700; color:var(--primary);">١٨,٠٠٠</td>
+                                <td style="text-align:center; color:var(--text-muted);">١٨,٠٠٠</td>
+                            </tr>
+                            <tr>
+                                <td><span style="display:inline-block; width:10px; height:10px; background:#E8B4C2; border-radius:2px; margin-left:6px;"></span><strong>المتجر الإلكتروني</strong></td>
+                                <td style="text-align:center; font-weight:700; color:var(--primary);">١٠,٤٦٩</td>
+                                <td style="text-align:center; color:var(--text-muted);">١٢٤</td>
+                            </tr>
+                            <tr>
+                                <td><span style="display:inline-block; width:10px; height:10px; background:#C9A96E; border-radius:2px; margin-left:6px;"></span><strong>منصة تبرع</strong></td>
+                                <td style="text-align:center; font-weight:700; color:var(--primary);">١,٢٠٣</td>
+                                <td style="text-align:center; color:var(--text-muted);">١٣,٧٨٦</td>
+                            </tr>
+                            <tr class="total-row" style="background:#FFF9F0;">
+                                <td><strong>الإجمالي</strong></td>
+                                <td style="text-align:center; font-size:1.15rem; font-weight:900; color:#541228;">٥٨٢,١٦٧</td>
+                                <td style="text-align:center; font-size:1.15rem; font-weight:900; color:var(--text-muted);">١٩٩,٤٧٤</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="font-size:0.85rem; color:#888; margin-top:12px; line-height:1.6; background:#FAF8F5; padding:8px 14px; border-radius:var(--radius-sm); border-right:3px solid var(--secondary);">
+                        * منصة تبرع أوقفت واستُبدلت بمنصة إحسان خلال 2026م علماً بأنه كانت فترة جمع التبرع في ثلاث أشهر.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 12: Income & Expense Growth Overview (نمو الإيرادات والمصروفات) -->
         <div class="table-card" style="background:#FFF; border:2px solid var(--secondary); border-radius:var(--radius-xl); padding:30px; margin-top:35px; box-shadow:var(--shadow-md);">
             <div style="background:var(--primary); color:#FFF; padding:12px 24px; border-radius:var(--radius-lg); margin-bottom:25px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
                 <h3 style="color:#FFF; font-size:1.3rem; margin:0;"><i class="fas fa-chart-simple" style="color:var(--secondary); margin-left:8px;"></i> نمو الإيرادات والمصروفات (مقارنة النصف الأول لعام ٢٠٢٦م بالنصف الأول لعام ٢٠٢٥م)</h3>
