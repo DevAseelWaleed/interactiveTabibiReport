@@ -1358,10 +1358,10 @@ html_content = """<!DOCTYPE html>
                         <td>نسبة الامتثال للحوكمة</td>
                         <td>١٠٠٪</td>
                         <td>٥٠٪</td>
-                        <td>قيد الاستعانة باستشاري</td>
-                        <td><span class="tag-pill tag-warning">٢٥.٠٠٪</span></td>
-                        <td><span class="badge-pill bg-yellow">متأخر</span></td>
-                        <td>طلب موازنة استشارية (١٥-٢١ ألف ر.س) لاستكمال الملف</td>
+                        <td>تم تحقيق ٧٠.٠٠٪</td>
+                        <td><span class="tag-pill tag-success">٧٠.٠٠٪</span></td>
+                        <td><span class="badge-pill bg-green">متقدم ومتميز</span></td>
+                        <td>إنجاز ٧٠٪ من متطلبات الحوكمة وتفعيل منصة نوى بنجاح</td>
                     </tr>
                     <tr>
                         <td>١٤</td>
@@ -1370,9 +1370,9 @@ html_content = """<!DOCTYPE html>
                         <td>٦ مصادر مستدامة</td>
                         <td>٦ مصادر</td>
                         <td>٦ مصادر نشطة</td>
-                        <td><span class="tag-pill tag-warning">٦٦.٦٧٪</span></td>
-                        <td><span class="badge-pill bg-yellow">قيد التنفيذ</span></td>
-                        <td>المصادر مفعلة ولكن الدخل متركز بنسبة ٤٣٪ بمانح فرد</td>
+                        <td><span class="tag-pill tag-success">١٠٠.٠٠٪</span></td>
+                        <td><span class="badge-pill bg-green">مكتمل</span></td>
+                        <td>تفعيل كافة مصادر الدخل الـ ٦ بنجاح (زكاة، علاج، متجر، تبرع، دعم عام، عضوية)</td>
                     </tr>
                 </tbody>
             </table>
@@ -3015,7 +3015,7 @@ html_content = """<!DOCTYPE html>
         </div>
     </footer>
 
-            <!-- Bulletproof Interactive Scripts & Independent Chart Initializers -->
+                <!-- Bulletproof Interactive Scripts & Independent Chart Initializers -->
     <script>
         // Live Filter Function for tables
         function filterTable(inputId, tableId) {
