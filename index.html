@@ -70,60 +70,68 @@
         /* Top Executive Bar */
         .exec-nav-wrapper {
             position: fixed;
-            top: 15px;
+            top: 10px;
             left: 0;
             right: 0;
             display: flex;
             justify-content: center;
             z-index: 1000;
             pointer-events: none;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
         .exec-nav {
             pointer-events: auto;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 10px 28px;
+            padding: 5px 12px;
             border-radius: 50px;
-            box-shadow: 0 10px 35px rgba(84, 18, 40, 0.12);
+            box-shadow: 0 6px 25px rgba(84, 18, 40, 0.14);
             border: 1px solid var(--border-gold);
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 6px;
+            max-width: 98vw;
         }
 
         .exec-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 5px;
             text-decoration: none;
             color: var(--primary);
             font-weight: 800;
-            font-size: 1.15rem;
-            padding-left: 16px;
+            font-size: 0.92rem;
+            padding-left: 8px;
             border-left: 1.5px solid var(--border-light);
+            white-space: nowrap;
         }
 
         .exec-brand i {
             color: var(--secondary);
-            font-size: 1.3rem;
+            font-size: 1.05rem;
         }
 
         .exec-links {
             display: flex;
-            gap: 10px;
+            gap: 3px;
             list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .exec-links a {
             text-decoration: none;
             color: var(--text-body);
             font-weight: 600;
-            font-size: 0.92rem;
-            padding: 6px 14px;
-            border-radius: 30px;
+            font-size: 0.76rem;
+            padding: 4px 7px;
+            border-radius: 20px;
             transition: var(--transition);
+            white-space: nowrap;
         }
 
         .exec-links a:hover, .exec-links a.active {
@@ -135,14 +143,17 @@
             background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
             color: #FFF;
             border: none;
-            padding: 7px 18px;
-            border-radius: 30px;
+            padding: 5px 11px;
+            border-radius: 20px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.74rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
             transition: var(--transition);
         }
 
@@ -750,111 +761,115 @@
         </nav>
     </div>
 
-    <!-- Section 1: Leadership & Vision (القسم الأول: القيادة الرشيدة) -->
-    <section class="container" id="leadership" style="padding-top:100px; padding-bottom:20px;">
+    <!-- Section 1: Leadership & Vision (القسم الأول: القيادة الرشيدة - يمتد بعرض الشاشة) -->
+    <section id="leadership" style="width:100%; max-width:98vw; margin:0 auto; padding:85px 20px 20px; box-sizing:border-box;">
         <div class="section-intro">
             <span class="eyebrow-pill">الرؤية والتمكين الوطني</span>
             <h2 class="section-headline">القيادة الرشيدة</h2>
             <p class="section-subtext">تكامل الجهود لتحقيق مستهدفات رؤية المملكة ٢٠٣٠ في ترسيخ مساهمة القطاع الصحي غير الربحي في جودة الحياة</p>
         </div>
 
-        <div class="grid-3" style="margin-bottom:40px;">
+        <div class="grid-3" style="margin-bottom:30px; gap:20px; width:100%;">
             <!-- Crown Prince (Right) -->
-            <div class="royal-card-v2">
+            <div class="royal-card-v2" style="width:100%; box-sizing:border-box;">
                 <div>
                     <div class="royal-img-wrap">
                         <img src="assets/images/crown_prince.jpg" alt="صاحب السمو الملكي الأمير محمد بن سلمان" class="royal-portrait">
                     </div>
-                    <h3 style="color:var(--secondary); font-size:1.25rem;">صاحب السمو الملكي</h3>
-                    <p style="font-size:0.95rem; opacity:0.8; margin-bottom:15px;">الأمير محمد بن سلمان بن عبدالعزيز</p>
+                    <h3 style="color:var(--secondary); font-size:1.3rem;">صاحب السمو الملكي</h3>
+                    <p style="font-size:1rem; opacity:0.9; margin-bottom:15px; font-weight:700;">الأمير محمد بن سلمان بن عبدالعزيز</p>
                 </div>
-                <p style="font-style:italic; font-size:0.95rem; line-height:1.8; color:#F0EBE1; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
+                <p style="font-style:italic; font-size:0.96rem; line-height:1.85; color:#F0EBE1; border-right:3px solid var(--secondary); padding-right:14px; text-align:justify;">
                     «نهدف للوصول إلى قطاع غير ربحي مهم، مبادر وداعم ومؤثر في التعليم والصحة والثقافة والمجالات البحثية، وسنعتمد عليه بشكل رئيسي.»
                 </p>
             </div>
 
             <!-- King Salman (Center / Middle) -->
-            <div class="royal-card-v2" style="border: 1.5px solid var(--secondary); box-shadow: 0 10px 30px rgba(201, 169, 110, 0.2);">
+            <div class="royal-card-v2" style="width:100%; box-sizing:border-box; border: 2px solid var(--secondary); box-shadow: 0 12px 35px rgba(201, 169, 110, 0.25);">
                 <div>
                     <div class="royal-img-wrap" style="width:135px; height:135px; border-width:3.5px;">
                         <img src="assets/images/king_salman.jpg" alt="خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز" class="royal-portrait">
                     </div>
-                    <h3 style="color:var(--secondary); font-size:1.3rem;">خادم الحرمين الشريفين</h3>
-                    <p style="font-size:0.95rem; opacity:0.9; margin-bottom:15px; font-weight:700;">الملك سلمان بن عبدالعزيز آل سعود</p>
+                    <h3 style="color:var(--secondary); font-size:1.35rem;">خادم الحرمين الشريفين</h3>
+                    <p style="font-size:1.02rem; opacity:0.95; margin-bottom:15px; font-weight:800;">الملك سلمان بن عبدالعزيز آل سعود</p>
                 </div>
-                <p style="font-style:italic; font-size:0.95rem; line-height:1.8; color:#F0EBE1; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
+                <p style="font-style:italic; font-size:0.96rem; line-height:1.85; color:#F0EBE1; border-right:3px solid var(--secondary); padding-right:14px; text-align:justify;">
                     «ما يميز هذه البلاد هو حرص قادتها على الخير والتشجيع عليه، وما نراه من مؤسسات خيرية في مختلف المجالات… إلا جانبًا من الجوانب المشرقة لبلادنا.»
                 </p>
             </div>
 
             <!-- Prince Salman bin Sultan (Left) -->
-            <div class="royal-card-v2">
+            <div class="royal-card-v2" style="width:100%; box-sizing:border-box;">
                 <div>
                     <div class="royal-img-wrap">
                         <img src="assets/images/prince_salman.jpg" alt="صاحب السمو الملكي الأمير سلمان بن سلطان" class="royal-portrait">
                     </div>
-                    <h3 style="color:var(--secondary); font-size:1.25rem;">صاحب السمو الملكي</h3>
-                    <p style="font-size:0.95rem; opacity:0.8; margin-bottom:15px;">الأمير سلمان بن سلطان بن عبدالعزيز</p>
+                    <h3 style="color:var(--secondary); font-size:1.3rem;">صاحب السمو الملكي</h3>
+                    <p style="font-size:1rem; opacity:0.9; margin-bottom:15px; font-weight:700;">الأمير سلمان بن سلطان بن عبدالعزيز</p>
                 </div>
-                <p style="font-style:italic; font-size:0.95rem; line-height:1.8; color:#F0EBE1; border-right:3px solid var(--secondary); padding-right:12px; text-align:justify;">
+                <p style="font-style:italic; font-size:0.96rem; line-height:1.85; color:#F0EBE1; border-right:3px solid var(--secondary); padding-right:14px; text-align:justify;">
                     «نسعد بالإنجازات التي حققتها الجمعيات الأهلية بالمنطقة باعتبارها شريكًا استراتيجيًا للقطاعين العام والخاص في تحسين جودة الحياة وتعزيز الاستقرار.»
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Board of Directors & Chairman Speech (القسم الثاني: مجلس الإدارة وكلمة رئيس المجلس) -->
-    <section class="container" id="board" style="padding-top:10px; padding-bottom:30px;">
-        <div class="section-intro" style="margin-bottom:30px;">
-            <span class="eyebrow-pill">القيادة المؤسسية والحوكمة</span>
-            <h2 class="section-headline">مجلس الإدارة</h2>
-            <p class="section-subtext">إشراف استراتيجي وتوجيه رشيد يضمن استدامة الأثر وتعظيم كفاءة العمل الصحي</p>
-        </div>
+    <!-- Section 2: Board of Directors & Chairman Speech (القسم الثاني: مجلس الإدارة باللون العنابي الممتد من اليمين إلى اليسار) -->
+    <section id="board" style="width:100%; background:linear-gradient(135deg, #3B0B1B 0%, #541228 50%, #240713 100%); color:#FFF; padding:75px 20px 65px; margin:20px 0 45px; border-top:3px solid var(--secondary); border-bottom:3px solid var(--secondary); position:relative; overflow:hidden; box-sizing:border-box;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(201, 169, 110, 0.15) 1px, transparent 1px); background-size:30px 30px; opacity:0.6; pointer-events:none;"></div>
+        
+        <div style="max-width:1440px; margin:0 auto; position:relative; z-index:2;">
+            <div class="section-intro" style="margin-bottom:35px;">
+                <span class="eyebrow-pill" style="background:rgba(201, 169, 110, 0.2); color:var(--secondary-light); border:1px solid rgba(201, 169, 110, 0.4);">القيادة المؤسسية والحوكمة</span>
+                <h2 class="section-headline" style="color:#FFF;">مجلس الإدارة</h2>
+                <p class="section-subtext" style="color:rgba(255,255,255,0.88);">إشراف استراتيجي وتوجيه رشيد يضمن استدامة الأثر وتعظيم كفاءة العمل الصحي</p>
+            </div>
 
-        <!-- Page 6: Official Chairman Speech with Portrait (كلمة رئيس مجلس الإدارة) -->
-        <div class="exec-card" style="background:linear-gradient(135deg, #4A1024 0%, #6B1D3A 100%); color:#FFF; padding:40px; margin-bottom:30px; border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); border:2px solid var(--secondary);">
-            <div class="grid-2" style="align-items:center; gap:40px;">
-                <!-- Right: Full Speech Text -->
-                <div>
-                    <div style="font-size:1.1rem; font-weight:700; color:var(--secondary); margin-bottom:8px; text-align:right;">
-                        بسم الله الرحمن الرحيم
+            <!-- Page 6: Official Chairman Speech with Portrait (كلمة رئيس مجلس الإدارة) -->
+            <div class="exec-card" style="background:rgba(255, 255, 255, 0.06); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); color:#FFF; padding:40px; border-radius:var(--radius-xl); box-shadow:0 15px 40px rgba(0,0,0,0.35); border:1.5px solid rgba(201, 169, 110, 0.45); max-width:1300px; margin:0 auto;">
+                <div class="grid-2" style="align-items:center; gap:40px;">
+                    <!-- Right: Full Speech Text -->
+                    <div>
+                        <div style="font-size:1.15rem; font-weight:800; color:var(--secondary-light); margin-bottom:8px; text-align:right;">
+                            بسم الله الرحمن الرحيم
+                        </div>
+                        <h3 style="color:#FFF; font-size:1.7rem; margin-bottom:15px; font-weight:900;">كلمة رئيس مجلس الإدارة</h3>
+                        <p style="font-size:0.98rem; color:#F0EBE1; margin-bottom:12px; font-weight:600;">
+                            الحمد لله رب العالمين، والصلاة والسلام على نبينا محمد وعلى آله وصحبه أجمعين.<br>
+                            الإخوة والأخوات أعضاء الجمعية العمومية، وأعضاء مجلس الإدارة، والزملاء والزميلات في جمعية طبيبي الأهلية،<br>
+                            السلام عليكم ورحمة الله وبركاته،
+                        </p>
+                        <p style="font-size:0.94rem; line-height:1.9; color:rgba(255,255,255,0.92); text-align:justify; margin-bottom:10px;">
+                            يسعدني أن أرحب بكم في هذا اللقاء الذي نستعرض من خلاله التقرير النصف سنوي لجمعية طبيبي الأهلية، والذي يأتي تأكيدًا على حرص الجمعية على الشفافية، والحوكمة، ووضوح الإنجاز، ومشاركة أصحاب العلاقة في مسيرة العمل.
+                        </p>
+                        <p style="font-size:0.94rem; line-height:1.9; color:rgba(255,255,255,0.92); text-align:justify; margin-bottom:10px;">
+                            لقد شهد النصف الأول من هذا العام جهودًا متواصلة لتطوير أعمال الجمعية إداريًا وماليًا وبرامجيًا، وتحسين كفاءة الأداء، وتعزيز جودة الخدمات والمبادرات التي تقدمها الجمعية للمستفيدين.
+                        </p>
+                        <p style="font-size:0.94rem; line-height:1.9; color:rgba(255,255,255,0.92); text-align:justify; margin-bottom:10px;">
+                            وما تحقق من أعمال وإنجازات لم يكن ليتحقق بعد توفيق الله إلا بفضل تكامل الجهود بين مجلس الإدارة والجمعية العمومية والإدارة التنفيذية، وبفضل ما نجده من دعم وثقة من شركائنا وداعمينا، الذين نقدر لهم إسهاماتهم ووقوفهم المستمر مع رسالة الجمعية وأهدافها.
+                        </p>
+                        <p style="font-size:0.94rem; line-height:1.9; color:rgba(255,255,255,0.92); text-align:justify; margin-bottom:10px;">
+                            كما أن استعراض هذا التقرير لا يمثل مجرد عرض لما تم إنجازه، بل هو وقفة تقييم ومراجعة لما تحقق، وتحديد لما يمكن تطويره وتحسينه خلال المرحلة القادمة، بما يسهم في رفع كفاءة الجمعية وتعظيم أثرها الاجتماعي والصحي.
+                        </p>
+                        <p style="font-size:0.94rem; line-height:1.9; color:rgba(255,255,255,0.92); text-align:justify; margin-bottom:15px;">
+                            ونحن في مجلس الإدارة نؤكد التزامنا بمواصلة العمل على تطوير الأداء المؤسسي، وتعزيز الحوكمة والاستدامة المالية، وتنفيذ البرامج والمبادرات التي تحقق أثرًا ملموسًا ومستدامًا للمستفيدين والمجتمع.
+                        </p>
+                        <div style="font-size:1.05rem; font-weight:800; color:var(--secondary-light); text-align:left;">
+                            أخوكم<br>
+                            أ.د. منصور محمد النزهة<br>
+                            <span style="font-size:0.88rem; color:#FFF; font-weight:400;">رئيس مجلس الإدارة</span>
+                        </div>
                     </div>
-                    <h3 style="color:#FFF; font-size:1.6rem; margin-bottom:15px;">كلمة رئيس مجلس الإدارة</h3>
-                    <p style="font-size:0.95rem; color:#F0EBE1; margin-bottom:12px; font-weight:600;">
-                        الحمد لله رب العالمين، والصلاة والسلام على نبينا محمد وعلى آله وصحبه أجمعين.<br>
-                        الإخوة والأخوات أعضاء الجمعية العمومية، وأعضاء مجلس الإدارة، والزملاء والزميلات في جمعية طبيبي الأهلية،<br>
-                        السلام عليكم ورحمة الله وبركاته،
-                    </p>
-                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
-                        يسعدني أن أرحب بكم في هذا اللقاء الذي نستعرض من خلاله التقرير النصف سنوي لجمعية طبيبي الأهلية، والذي يأتي تأكيدًا على حرص الجمعية على الشفافية، والحوكمة، ووضوح الإنجاز، ومشاركة أصحاب العلاقة في مسيرة العمل.
-                    </p>
-                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
-                        لقد شهد النصف الأول من هذا العام جهودًا متواصلة لتطوير أعمال الجمعية إداريًا وماليًا وبرامجيًا، وتحسين كفاءة الأداء، وتعزيز جودة الخدمات والمبادرات التي تقدمها الجمعية للمستفيدين.
-                    </p>
-                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
-                        وما تحقق من أعمال وإنجازات لم يكن ليتحقق بعد توفيق الله إلا بفضل تكامل الجهود بين مجلس الإدارة والجمعية العمومية والإدارة التنفيذية، وبفضل ما نجده من دعم وثقة من شركائنا وداعمينا، الذين نقدر لهم إسهاماتهم ووقوفهم المستمر مع رسالة الجمعية وأهدافها.
-                    </p>
-                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:10px;">
-                        كما أن استعراض هذا التقرير لا يمثل مجرد عرض لما تم إنجازه، بل هو وقفة تقييم ومراجعة لما تحقق، وتحديد لما يمكن تطويره وتحسينه خلال المرحلة القادمة، بما يسهم في رفع كفاءة الجمعية وتعظيم أثرها الاجتماعي والصحي.
-                    </p>
-                    <p style="font-size:0.92rem; line-height:1.9; color:rgba(255,255,255,0.9); text-align:justify; margin-bottom:15px;">
-                        ونحن في مجلس الإدارة نؤكد التزامنا بمواصلة العمل على تطوير الأداء المؤسسي، وتعزيز الحوكمة والاستدامة المالية، وتنفيذ البرامج والمبادرات التي تحقق أثرًا ملموسًا ومستدامًا للمستفيدين والمجتمع.
-                    </p>
-                    <div style="font-size:0.95rem; font-weight:700; color:var(--secondary); text-align:left;">
-                        أخوكم<br>
-                        أ.د. منصور محمد النزهة<br>
-                        <span style="font-size:0.85rem; color:#FFF; font-weight:400;">رئيس مجلس الإدارة</span>
-                    </div>
-                </div>
 
-                <!-- Left: Official Portrait Photo -->
-                <div style="text-align:center;">
-                    <div style="width:230px; height:230px; margin:0 auto 20px auto; border-radius:50%; border:4px solid var(--secondary); padding:4px; background:rgba(201, 169, 110, 0.2); box-shadow:0 12px 35px rgba(0,0,0,0.4); overflow:hidden;">
-                        <img src="assets/images/dr_mansour_alnozha.jpg" alt="أ.د. منصور محمد النزهة" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                    <!-- Left: Official Portrait Photo -->
+                    <div style="text-align:center;">
+                        <div style="width:230px; height:230px; margin:0 auto 20px auto; border-radius:50%; border:4px solid var(--secondary); padding:4px; background:rgba(201, 169, 110, 0.2); box-shadow:0 12px 35px rgba(0,0,0,0.4); overflow:hidden;">
+                            <img src="assets/images/dr_mansour_alnozha.jpg" alt="أ.د. منصور محمد النزهة" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                        </div>
+                        <h4 style="color:#FFF; font-size:1.4rem; font-weight:900; margin-bottom:4px;">أ.د. منصور محمد النزهة</h4>
+                        <div style="color:var(--secondary-light); font-weight:800; font-size:1.05rem;">رئيس مجلس الإدارة</div>
+                        <div style="color:rgba(255,255,255,0.8); font-size:0.9rem; margin-top:4px;">جمعية طبيبي الأهلية بالمدينة المنورة</div>
                     </div>
-                    <h4 style="color:#FFF; font-size:1.3rem; margin-bottom:4px;">أ.د. منصور محمد النزهة</h4>
-                    <div style="color:var(--secondary); font-weight:700; font-size:1rem;">رئيس مجلس الإدارة</div>
-                    <div style="color:rgba(255,255,255,0.7); font-size:0.88rem; margin-top:4px;">جمعية طبيبي الأهلية بالمدينة المنورة</div>
                 </div>
             </div>
         </div>
